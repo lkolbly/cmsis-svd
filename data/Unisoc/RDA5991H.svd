@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!-- File naming: <vendor>_<part/series name>.svd -->
+
+<!--
+  Copyright (C) 2012-2014 ARM Limited. All rights reserved.
+
+  Purpose: System Viewer Description (SVD) Example (Schema Version 1.1)
+           This is a description of a none-existent and incomplete device
+		   for demonstration purposes only.
+		   
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
+   - Redistributions of source code must retain the above copyright
+     notice, this list of conditions and the following disclaimer.
+   - Redistributions in binary form must reproduce the above copyright
+     notice, this list of conditions and the following disclaimer in the
+     documentation and/or other materials provided with the distribution.
+   - Neither the name of ARM nor the names of its contributors may be used 
+     to endorse or promote products derived from this software without 
+     specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS AND CONTRIBUTORS BE
+  LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
+  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
+  ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE.
+ -->
+ 
+<device schemaVersion="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD.xsd" >
+  <vendor>Unisoc</vendor>                                       <!-- device vendor name -->
+  <name>RDA5991H</name>                                        <!-- name of part-->
+  <version>1.0.0</version>                                          <!-- version of this description, adding CMSIS-SVD 1.1 tags -->
+  <description>Register cmsis file for RDA5981 parts</description>
+
+  <cpu>                                                           <!-- details about the cpu embedded in the device -->
+    <name>CM4</name>
+    <revision>r1p4</revision>
+    <endian>little</endian>
+    <mpuPresent>1</mpuPresent>
+    <fpuPresent>1</fpuPresent>
+    <nvicPrioBits>5</nvicPrioBits>
+	<!--Define the number of bits available in the Nested Vectored Interrupt Controller (NVIC) for configuring priority.-->
+    <vendorSystickConfig>false</vendorSystickConfig>
+    <!--Indicate whether the processor implements a vendor-specific System Tick Timer.-->
+  </cpu>
+  <addressUnitBits>8</addressUnitBits>                            <!-- byte addressable memory -->
+  <width>32</width>                                               <!-- bus width is 32 bits -->
+  <!-- default settings implicitly inherited by subsequent sections -->
+  <size>32</size>                                                 
+  <!-- this is the default size (number of bits) of all peripherals and register that do not define "size" themselves -->
+
+  <peripherals>
+    <peripheral>
+      <name>RDA_SPI0</name>
+      <version>1.0</version>
+      <description>description RDA_SPI0</description>
+      <groupName>SPI0</groupName>
+      <baseAddress>0x40013000</baseAddress>
+      <addressBlock>
+        <offset>0</offset>
+        <size>0xC</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>SPIFLASH_IRQn</name>
+        <description>description interrupt RDA_SPI0</description>
+        <value>0</value>
+      </interrupt>
+      <registers>
+        <register>
+          <name>CFG</name>
+          <description>description spi_cfg</description>
+          <addressOffset>0x00</addressOffset>
+          <size>32</size>
+          <resetValue>0x0191420</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+          <fields>
+            <!-- EN: Enable -->
+            <field>
+              <name>EN</name>
+              <description>Enable</description>
+              <bitRange>[0:0]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>Disable</name>
+                  <description>Timer is disabled and does not operate</description>
+                  <value>0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>Enable</name>
+                  <description>Timer is enabled and can operate</description>
+                  <value>1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+		  </fields>
+	    </register>
+		
+		<register>
+          <name>D0CMD</name>
+          <description>description cmd_data0</description>
+          <addressOffset>0x04</addressOffset>
+          <size>32</size>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		
+		<register>
+          <name>D1CMD</name>
+          <description>description cmd_data1</description>
+          <addressOffset>0x08</addressOffset>
+          <size>32</size>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+	  </registers>
+	</peripheral>
+	
+    <peripheral>
+      <name>RDA_I2C0</name>
+      <version>1.0</version>
+      <description>description RDA_I2C0</description>
+      <groupName>I2C0</groupName>
+      <baseAddress>0x40003000</baseAddress>
+      <addressBlock>
+        <offset>0</offset>
+        <size>0x18</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>I2C_IRQn</name>
+        <description>description interrupt RDA_I2C0</description>
+        <value>14</value>
+      </interrupt>
+      <registers>
+      <!-- CR: Control Register -->
+        <register>
+          <name>CR0</name>
+          <description>Control Register 0</description>
+          <addressOffset>0x00</addressOffset>
+          <resetValue>0x0000FFFF</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>SR</name>
+          <description>Status Register</description>
+          <addressOffset>0x04</addressOffset>
+          <resetValue>0x7C000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>DR</name>
+          <description>TX/RX Data Register</description>
+          <addressOffset>0x08</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>CMD</name>
+          <description>Command Register</description>
+          <addressOffset>0x0C</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>ICR</name>
+          <description>Interrupt Clear Register</description>
+          <addressOffset>0x10</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>CR1</name>
+          <description>Control Register 1</description>
+          <addressOffset>0x14</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>			
+	  </registers>
+	</peripheral>
+
+	<peripheral>
+      <name>RDA_GPIO</name>
+      <version>1.0</version>
+      <description>description RDA_GPIO</description>
+      <groupName>GPIO</groupName>
+      <baseAddress>0x40001000</baseAddress>
+      <addressBlock>
+        <offset>0</offset>
+        <size>0x68</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>GPIO_IRQn</name>
+        <description>description interrupt RDA_GPIO</description>
+        <value>5</value>
+      </interrupt>
+      <registers>
+      <!-- CR: Control Register -->
+        <register>
+          <name>CTRL</name>
+          <description>GPIO Control</description>
+          <addressOffset>0x00</addressOffset>
+          <resetValue>0x30003000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>DOUT</name>
+          <description>GPIO Data Output</description>
+          <addressOffset>0x08</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>DIN</name>
+          <description>GPIO Data Input</description>
+          <addressOffset>0x0C</addressOffset>
+          <resetValue>0x00000100</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>DIR</name>
+          <description>GPIO Direction</description>
+          <addressOffset>0x10</addressOffset>
+          <resetValue>0x03c03c01</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>SLEW0</name>
+          <description>GPIO Slew Config 0</description>
+          <addressOffset>0x14</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>SLEWIOMUX</name>
+          <description>GPIO IOMUX Slew Config</description>
+          <addressOffset>0x18</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>INTCTRL</name>
+          <description>GPIO Interrupt Control</description>
+          <addressOffset>0x1C</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>IFCTRL</name>
+          <description>Interface Control</description>
+          <addressOffset>0x20</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>SLEW1</name>
+          <description>GPIO Slew Config 1</description>
+          <addressOffset>0x24</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>REVID</name>
+          <description>ASIC Reversion ID</description>
+          <addressOffset>0x28</addressOffset>
+          <resetValue>0x00005991</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>LPOSEL</name>
+          <description>LPO Select</description>
+          <addressOffset>0x2C</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>RESERVED1</name>
+          <description>description reserved1_reg</description>
+          <addressOffset>0x30</addressOffset>
+          <resetValue>0xc5c</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>INTSEL</name>
+          <description>GPIO Interrupt Select</description>
+          <addressOffset>0x34</addressOffset>
+          <resetValue>0x0</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>	
+		<register>
+          <name>RESERVED2</name>
+          <description>description reserved2_reg</description>
+          <addressOffset>0x38</addressOffset>
+          <resetValue>0x5A5A5A5A</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>SDIOCFG</name>
+          <description>SDIO Config</description>
+          <addressOffset>0x3C</addressOffset>
+          <resetValue>0x5A5A5A5A</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>MEMCFG</name>
+          <description>Memory Config</description>
+          <addressOffset>0x40</addressOffset>
+          <resetValue>0x00008842</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+        <register>
+          <dim>8</dim>
+          <dimIncrement>4</dimIncrement>
+          <dimIndex>0-7</dimIndex>
+          <name>IOMUXCTRL[%s]</name>
+          <description>IOMUX Control</description>
+          <addressOffset>0x44</addressOffset>
+          <size>32</size>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+        </register>
+		<register>
+          <name>PCCTRL</name>
+          <description>Pulse Counter Control</description>
+          <addressOffset>0x64</addressOffset>
+          <resetValue>0x0</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>	
+	  </registers>
+	</peripheral>
+
+   <peripheral>
+      <name>RDA_TIMER</name>
+      <version>1.0</version>
+      <description>description RDA_TIMER</description>
+      <groupName>TIMER</groupName>
+      <baseAddress>0x40002000</baseAddress>
+      <addressBlock>
+        <offset>0</offset>
+        <size>0x24</size>
+        <usage>registers</usage>
+      </addressBlock>
+      <interrupt>
+        <name>TIMER_IRQn</name>
+        <description>description interrupt RDA_TIMER</description>
+        <value>6</value>
+      </interrupt>
+      <registers>
+        <register>
+          <name>LDCNT</name>
+          <description>Timer Load Count Register</description>
+          <addressOffset>0x00</addressOffset>
+          <resetValue>0x0</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>CVAL</name>
+          <description>Current Timer Value Register</description>
+          <addressOffset>0x04</addressOffset>
+          <resetValue>0x0</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>TCTRL</name>
+          <description>Timer Control Register</description>
+          <addressOffset>0x08</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>INTCLR</name>
+          <description>Interrupt Clear Register</description>
+          <addressOffset>0x0C</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>INTST</name>
+          <description>Timer Int Stat Register</description>
+          <addressOffset>0x10</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>LDCNT1</name>
+          <description>Timer1 Load Count Register</description>
+          <addressOffset>0x14</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>CVAL1</name>
+          <description>Current Timer1 Value Register</description>
+          <addressOffset>0x18</addressOffset>
+          <resetValue>0x0</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>
+		<register>
+          <name>INTCLR1</name>
+          <description>timer1 Interrupt Clear Register</description>
+          <addressOffset>0x20</addressOffset>
+          <resetValue>0x00000000</resetValue>
+          <resetMask>0xFFFFFFFF</resetMask>
+	    </register>	
+	  </registers>
+	</peripheral>
+
+
+  </peripherals>
+</device>
