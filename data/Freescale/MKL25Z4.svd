@@ -354,12 +354,12 @@
                 <enumeratedValue>
                   <name>00</name>
                   <description>Core and system clock divider (OUTDIV1) is 0x7 (divide by 8) when LPBOOT1=0 or 0x1 (divide by 2) when LPBOOT1=1.</description>
-                  <value>#0</value>
+                  <value>#00</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>01</name>
                   <description>Core and system clock divider (OUTDIV1) is 0x3 (divide by 4) when LPBOOT1=0 or 0x0 (divide by 1) when LPBOOT1=1.</description>
-                  <value>#1</value>
+                  <value>#01</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -373,12 +373,12 @@
                 <enumeratedValue>
                   <name>00</name>
                   <description>NMI interrupts are always blocked</description>
-                  <value>#0</value>
+                  <value>#00</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>01</name>
                   <description>NMI_b pin/interrupts reset default to enabled</description>
-                  <value>#1</value>
+                  <value>#01</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -392,12 +392,12 @@
                 <enumeratedValue>
                   <name>00</name>
                   <description>RESET pin is disabled following a POR and cannot be enabled as reset function</description>
-                  <value>#0</value>
+                  <value>#00</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>01</name>
                   <description>RESET_b pin is dedicated</description>
-                  <value>#1</value>
+                  <value>#01</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -411,12 +411,12 @@
                 <enumeratedValue>
                   <name>00</name>
                   <description>Core and system clock divider (OUTDIV1) is 0x7 (divide by 8) when LPBOOT0=0 or 0x3 (divide by 4) when LPBOOT0=1.</description>
-                  <value>#0</value>
+                  <value>#00</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>01</name>
                   <description>Core and system clock divider (OUTDIV1) is 0x1 (divide by 2) when LPBOOT0=0 or 0x0 (divide by 1) when LPBOOT0=1.</description>
-                  <value>#1</value>
+                  <value>#01</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -430,12 +430,12 @@
                 <enumeratedValue>
                   <name>00</name>
                   <description>Slower initialization</description>
-                  <value>#0</value>
+                  <value>#00</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>01</name>
                   <description>Fast Initialization</description>
-                  <value>#1</value>
+                  <value>#01</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -471,7 +471,10 @@
       </interrupt>
       <registers>
         <register>
-          <name>SAR0</name>
+          <dim>4</dim>
+          <dimIncrement>0x10</dimIncrement>
+          <dimIndex>0,1,2,3</dimIndex>
+          <name>SAR%s</name>
           <description>Source Address Register</description>
           <addressOffset>0x100</addressOffset>
           <size>32</size>
@@ -481,7 +484,7 @@
           <fields>
             <field>
               <name>SAR</name>
-              <description>Each SAR contains the byte address used by the DMA controller to read data</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-write</access>
@@ -489,7 +492,10 @@
           </fields>
         </register>
         <register>
-          <name>DAR0</name>
+          <dim>4</dim>
+          <dimIncrement>0x10</dimIncrement>
+          <dimIndex>0,1,2,3</dimIndex>
+          <name>DAR%s</name>
           <description>Destination Address Register</description>
           <addressOffset>0x104</addressOffset>
           <size>32</size>
@@ -499,7 +505,7 @@
           <fields>
             <field>
               <name>DAR</name>
-              <description>Each DAR contains the byte address used by the DMA controller to write data</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-write</access>
@@ -507,7 +513,10 @@
           </fields>
         </register>
         <register>
-          <name>DSR_BCR0</name>
+          <dim>4</dim>
+          <dimIncrement>0x10</dimIncrement>
+          <dimIndex>0,1,2,3</dimIndex>
+          <name>DSR_BCR%s</name>
           <description>DMA Status Register / Byte Count Register</description>
           <addressOffset>0x108</addressOffset>
           <size>32</size>
@@ -517,7 +526,7 @@
           <fields>
             <field>
               <name>BCR</name>
-              <description>This field contains the number of bytes yet to be transferred for a given block</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>24</bitWidth>
               <access>read-write</access>
@@ -648,7 +657,10 @@
           <resetMask>0xFF</resetMask>
         </register>
         <register>
-          <name>DCR0</name>
+          <dim>4</dim>
+          <dimIncrement>0x10</dimIncrement>
+          <dimIndex>0,1,2,3</dimIndex>
+          <name>DCR%s</name>
           <description>DMA Control Register</description>
           <addressOffset>0x10C</addressOffset>
           <size>32</size>
@@ -1153,174 +1165,6 @@
           </fields>
         </register>
         <register>
-          <name>SAR1</name>
-          <description>Source Address Register</description>
-          <addressOffset>0x110</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>SAR</name>
-              <description>Each SAR contains the byte address used by the DMA controller to read data</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>DAR1</name>
-          <description>Destination Address Register</description>
-          <addressOffset>0x114</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>DAR</name>
-              <description>Each DAR contains the byte address used by the DMA controller to write data</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>DSR_BCR1</name>
-          <description>DMA Status Register / Byte Count Register</description>
-          <addressOffset>0x118</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>BCR</name>
-              <description>This field contains the number of bytes yet to be transferred for a given block</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>DONE</name>
-              <description>Transactions done</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA transfer is not yet complete. Writing a 0 has no effect.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>DMA transfer completed. Writing a 1 to this bit clears all DMA status bits and should be used in an interrupt service routine to clear the DMA interrupt and error bits.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>BSY</name>
-              <description>Busy</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA channel is inactive. Cleared when the DMA has finished the last transaction.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>BSY is set the first time the channel is enabled after a transfer is initiated.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>REQ</name>
-              <description>Request</description>
-              <bitOffset>26</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No request is pending or the channel is currently active. Cleared when the channel is selected.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel has a transfer remaining and the channel is not selected.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>BED</name>
-              <description>Bus error on destination</description>
-              <bitOffset>28</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the write portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>BES</name>
-              <description>Bus error on source</description>
-              <bitOffset>29</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the read portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>CE</name>
-              <description>Configuration error</description>
-              <bitOffset>30</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No configuration error exists.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>A configuration error has occurred.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-          </fields>
-        </register>
-        <register>
           <name>DSR1</name>
           <description>DMA_DSR1 register.</description>
           <addressOffset>0x11B</addressOffset>
@@ -1328,679 +1172,6 @@
           <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0xFF</resetMask>
-        </register>
-        <register>
-          <name>DCR1</name>
-          <description>DMA Control Register</description>
-          <addressOffset>0x11C</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>LCH2</name>
-              <description>Link channel 2</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>DMA Channel 0</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>DMA Channel 1</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>DMA Channel 2</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>DMA Channel 3</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>LCH1</name>
-              <description>Link channel 1</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>DMA Channel 0</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>DMA Channel 1</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>DMA Channel 2</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>DMA Channel 3</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>LINKCC</name>
-              <description>Link channel control</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>No channel-to-channel linking</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>Perform a link to channel LCH1 after each cycle-steal transfer followed by a link to LCH2 after the BCR decrements to zero</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>Perform a link to channel LCH1 after each cycle-steal transfer</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Perform a link to channel LCH1 after the BCR decrements to zero</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>D_REQ</name>
-              <description>Disable request</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>ERQ bit is not affected.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>ERQ bit is cleared when the BCR is exhausted.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>DMOD</name>
-              <description>Destination address modulo</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0000</name>
-                  <description>Buffer disabled</description>
-                  <value>#0000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0001</name>
-                  <description>Circular buffer size is 16 bytes</description>
-                  <value>#0001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0010</name>
-                  <description>Circular buffer size is 32 bytes</description>
-                  <value>#0010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0011</name>
-                  <description>Circular buffer size is 64 bytes</description>
-                  <value>#0011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0100</name>
-                  <description>Circular buffer size is 128 bytes</description>
-                  <value>#0100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0101</name>
-                  <description>Circular buffer size is 256 bytes</description>
-                  <value>#0101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0110</name>
-                  <description>Circular buffer size is 512 bytes</description>
-                  <value>#0110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0111</name>
-                  <description>Circular buffer size is 1 KB</description>
-                  <value>#0111</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1000</name>
-                  <description>Circular buffer size is 2 KB</description>
-                  <value>#1000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1001</name>
-                  <description>Circular buffer size is 4 KB</description>
-                  <value>#1001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1010</name>
-                  <description>Circular buffer size is 8 KB</description>
-                  <value>#1010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1011</name>
-                  <description>Circular buffer size is 16 KB</description>
-                  <value>#1011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1100</name>
-                  <description>Circular buffer size is 32 KB</description>
-                  <value>#1100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1101</name>
-                  <description>Circular buffer size is 64 KB</description>
-                  <value>#1101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1110</name>
-                  <description>Circular buffer size is 128 KB</description>
-                  <value>#1110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1111</name>
-                  <description>Circular buffer size is 256 KB</description>
-                  <value>#1111</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>SMOD</name>
-              <description>Source address modulo</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0000</name>
-                  <description>Buffer disabled</description>
-                  <value>#0000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0001</name>
-                  <description>Circular buffer size is 16 bytes</description>
-                  <value>#0001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0010</name>
-                  <description>Circular buffer size is 32 bytes</description>
-                  <value>#0010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0011</name>
-                  <description>Circular buffer size is 64 bytes</description>
-                  <value>#0011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0100</name>
-                  <description>Circular buffer size is 128 bytes</description>
-                  <value>#0100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0101</name>
-                  <description>Circular buffer size is 256 bytes</description>
-                  <value>#0101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0110</name>
-                  <description>Circular buffer size is 512 bytes</description>
-                  <value>#0110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0111</name>
-                  <description>Circular buffer size is 1 KB</description>
-                  <value>#0111</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1000</name>
-                  <description>Circular buffer size is 2 KB</description>
-                  <value>#1000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1001</name>
-                  <description>Circular buffer size is 4 KB</description>
-                  <value>#1001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1010</name>
-                  <description>Circular buffer size is 8 KB</description>
-                  <value>#1010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1011</name>
-                  <description>Circular buffer size is 16 KB</description>
-                  <value>#1011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1100</name>
-                  <description>Circular buffer size is 32 KB</description>
-                  <value>#1100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1101</name>
-                  <description>Circular buffer size is 64 KB</description>
-                  <value>#1101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1110</name>
-                  <description>Circular buffer size is 128 KB</description>
-                  <value>#1110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1111</name>
-                  <description>Circular buffer size is 256 KB</description>
-                  <value>#1111</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>START</name>
-              <description>Start transfer</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>write-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA inactive</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA begins the transfer in accordance to the values in the TCDn. START is cleared automatically after one module clock and always reads as logic 0.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>DSIZE</name>
-              <description>Destination size</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>32-bit</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>8-bit</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>16-bit</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>DINC</name>
-              <description>Destination increment</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No change to the DAR after a successful transfer.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DAR increments by 1, 2, 4 depending upon the size of the transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>SSIZE</name>
-              <description>Source size</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>32-bit</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>8-bit</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>16-bit</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>SINC</name>
-              <description>Source increment</description>
-              <bitOffset>22</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No change to SAR after a successful transfer.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The SAR increments by 1, 2, 4 as determined by the transfer size.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>EADREQ</name>
-              <description>Enable asynchronous DMA requests</description>
-              <bitOffset>23</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>Disabled</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>Enabled</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>AA</name>
-              <description>Auto-align</description>
-              <bitOffset>28</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>Auto-align disabled</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>If SSIZE indicates a transfer no smaller than DSIZE, source accesses are auto-aligned; otherwise, destination accesses are auto-aligned. Source alignment takes precedence over destination alignment. If auto-alignment is enabled, the appropriate address register increments, regardless of DINC or SINC.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>CS</name>
-              <description>Cycle steal</description>
-              <bitOffset>29</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA continuously makes read/write transfers until the BCR decrements to 0.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>Forces a single read/write transfer per request.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>ERQ</name>
-              <description>Enable peripheral request</description>
-              <bitOffset>30</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>Peripheral request is ignored.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>Enables peripheral request to initiate transfer. A software-initiated request (setting the START bit) is always enabled.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>EINT</name>
-              <description>Enable interrupt on completion of transfer</description>
-              <bitOffset>31</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No interrupt is generated.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>Interrupt signal is enabled.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>SAR2</name>
-          <description>Source Address Register</description>
-          <addressOffset>0x120</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>SAR</name>
-              <description>Each SAR contains the byte address used by the DMA controller to read data</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>DAR2</name>
-          <description>Destination Address Register</description>
-          <addressOffset>0x124</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>DAR</name>
-              <description>Each DAR contains the byte address used by the DMA controller to write data</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>DSR_BCR2</name>
-          <description>DMA Status Register / Byte Count Register</description>
-          <addressOffset>0x128</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>BCR</name>
-              <description>This field contains the number of bytes yet to be transferred for a given block</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>DONE</name>
-              <description>Transactions done</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA transfer is not yet complete. Writing a 0 has no effect.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>DMA transfer completed. Writing a 1 to this bit clears all DMA status bits and should be used in an interrupt service routine to clear the DMA interrupt and error bits.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>BSY</name>
-              <description>Busy</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA channel is inactive. Cleared when the DMA has finished the last transaction.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>BSY is set the first time the channel is enabled after a transfer is initiated.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>REQ</name>
-              <description>Request</description>
-              <bitOffset>26</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No request is pending or the channel is currently active. Cleared when the channel is selected.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel has a transfer remaining and the channel is not selected.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>BED</name>
-              <description>Bus error on destination</description>
-              <bitOffset>28</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the write portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>BES</name>
-              <description>Bus error on source</description>
-              <bitOffset>29</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the read portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>CE</name>
-              <description>Configuration error</description>
-              <bitOffset>30</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No configuration error exists.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>A configuration error has occurred.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-          </fields>
         </register>
         <register>
           <name>DSR2</name>
@@ -2012,679 +1183,6 @@
           <resetMask>0xFF</resetMask>
         </register>
         <register>
-          <name>DCR2</name>
-          <description>DMA Control Register</description>
-          <addressOffset>0x12C</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>LCH2</name>
-              <description>Link channel 2</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>DMA Channel 0</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>DMA Channel 1</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>DMA Channel 2</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>DMA Channel 3</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>LCH1</name>
-              <description>Link channel 1</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>DMA Channel 0</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>DMA Channel 1</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>DMA Channel 2</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>DMA Channel 3</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>LINKCC</name>
-              <description>Link channel control</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>No channel-to-channel linking</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>Perform a link to channel LCH1 after each cycle-steal transfer followed by a link to LCH2 after the BCR decrements to zero</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>Perform a link to channel LCH1 after each cycle-steal transfer</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Perform a link to channel LCH1 after the BCR decrements to zero</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>D_REQ</name>
-              <description>Disable request</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>ERQ bit is not affected.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>ERQ bit is cleared when the BCR is exhausted.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>DMOD</name>
-              <description>Destination address modulo</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0000</name>
-                  <description>Buffer disabled</description>
-                  <value>#0000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0001</name>
-                  <description>Circular buffer size is 16 bytes</description>
-                  <value>#0001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0010</name>
-                  <description>Circular buffer size is 32 bytes</description>
-                  <value>#0010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0011</name>
-                  <description>Circular buffer size is 64 bytes</description>
-                  <value>#0011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0100</name>
-                  <description>Circular buffer size is 128 bytes</description>
-                  <value>#0100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0101</name>
-                  <description>Circular buffer size is 256 bytes</description>
-                  <value>#0101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0110</name>
-                  <description>Circular buffer size is 512 bytes</description>
-                  <value>#0110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0111</name>
-                  <description>Circular buffer size is 1 KB</description>
-                  <value>#0111</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1000</name>
-                  <description>Circular buffer size is 2 KB</description>
-                  <value>#1000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1001</name>
-                  <description>Circular buffer size is 4 KB</description>
-                  <value>#1001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1010</name>
-                  <description>Circular buffer size is 8 KB</description>
-                  <value>#1010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1011</name>
-                  <description>Circular buffer size is 16 KB</description>
-                  <value>#1011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1100</name>
-                  <description>Circular buffer size is 32 KB</description>
-                  <value>#1100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1101</name>
-                  <description>Circular buffer size is 64 KB</description>
-                  <value>#1101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1110</name>
-                  <description>Circular buffer size is 128 KB</description>
-                  <value>#1110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1111</name>
-                  <description>Circular buffer size is 256 KB</description>
-                  <value>#1111</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>SMOD</name>
-              <description>Source address modulo</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0000</name>
-                  <description>Buffer disabled</description>
-                  <value>#0000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0001</name>
-                  <description>Circular buffer size is 16 bytes</description>
-                  <value>#0001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0010</name>
-                  <description>Circular buffer size is 32 bytes</description>
-                  <value>#0010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0011</name>
-                  <description>Circular buffer size is 64 bytes</description>
-                  <value>#0011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0100</name>
-                  <description>Circular buffer size is 128 bytes</description>
-                  <value>#0100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0101</name>
-                  <description>Circular buffer size is 256 bytes</description>
-                  <value>#0101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0110</name>
-                  <description>Circular buffer size is 512 bytes</description>
-                  <value>#0110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0111</name>
-                  <description>Circular buffer size is 1 KB</description>
-                  <value>#0111</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1000</name>
-                  <description>Circular buffer size is 2 KB</description>
-                  <value>#1000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1001</name>
-                  <description>Circular buffer size is 4 KB</description>
-                  <value>#1001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1010</name>
-                  <description>Circular buffer size is 8 KB</description>
-                  <value>#1010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1011</name>
-                  <description>Circular buffer size is 16 KB</description>
-                  <value>#1011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1100</name>
-                  <description>Circular buffer size is 32 KB</description>
-                  <value>#1100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1101</name>
-                  <description>Circular buffer size is 64 KB</description>
-                  <value>#1101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1110</name>
-                  <description>Circular buffer size is 128 KB</description>
-                  <value>#1110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1111</name>
-                  <description>Circular buffer size is 256 KB</description>
-                  <value>#1111</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>START</name>
-              <description>Start transfer</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>write-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA inactive</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA begins the transfer in accordance to the values in the TCDn. START is cleared automatically after one module clock and always reads as logic 0.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>DSIZE</name>
-              <description>Destination size</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>32-bit</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>8-bit</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>16-bit</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>DINC</name>
-              <description>Destination increment</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No change to the DAR after a successful transfer.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DAR increments by 1, 2, 4 depending upon the size of the transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>SSIZE</name>
-              <description>Source size</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>32-bit</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>8-bit</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>16-bit</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>SINC</name>
-              <description>Source increment</description>
-              <bitOffset>22</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No change to SAR after a successful transfer.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The SAR increments by 1, 2, 4 as determined by the transfer size.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>EADREQ</name>
-              <description>Enable asynchronous DMA requests</description>
-              <bitOffset>23</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>Disabled</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>Enabled</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>AA</name>
-              <description>Auto-align</description>
-              <bitOffset>28</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>Auto-align disabled</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>If SSIZE indicates a transfer no smaller than DSIZE, source accesses are auto-aligned; otherwise, destination accesses are auto-aligned. Source alignment takes precedence over destination alignment. If auto-alignment is enabled, the appropriate address register increments, regardless of DINC or SINC.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>CS</name>
-              <description>Cycle steal</description>
-              <bitOffset>29</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA continuously makes read/write transfers until the BCR decrements to 0.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>Forces a single read/write transfer per request.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>ERQ</name>
-              <description>Enable peripheral request</description>
-              <bitOffset>30</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>Peripheral request is ignored.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>Enables peripheral request to initiate transfer. A software-initiated request (setting the START bit) is always enabled.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>EINT</name>
-              <description>Enable interrupt on completion of transfer</description>
-              <bitOffset>31</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No interrupt is generated.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>Interrupt signal is enabled.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>SAR3</name>
-          <description>Source Address Register</description>
-          <addressOffset>0x130</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>SAR</name>
-              <description>Each SAR contains the byte address used by the DMA controller to read data</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>DAR3</name>
-          <description>Destination Address Register</description>
-          <addressOffset>0x134</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>DAR</name>
-              <description>Each DAR contains the byte address used by the DMA controller to write data</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-              <access>read-write</access>
-            </field>
-          </fields>
-        </register>
-        <register>
-          <name>DSR_BCR3</name>
-          <description>DMA Status Register / Byte Count Register</description>
-          <addressOffset>0x138</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>BCR</name>
-              <description>This field contains the number of bytes yet to be transferred for a given block</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>24</bitWidth>
-              <access>read-write</access>
-            </field>
-            <field>
-              <name>DONE</name>
-              <description>Transactions done</description>
-              <bitOffset>24</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA transfer is not yet complete. Writing a 0 has no effect.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>DMA transfer completed. Writing a 1 to this bit clears all DMA status bits and should be used in an interrupt service routine to clear the DMA interrupt and error bits.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>BSY</name>
-              <description>Busy</description>
-              <bitOffset>25</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA channel is inactive. Cleared when the DMA has finished the last transaction.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>BSY is set the first time the channel is enabled after a transfer is initiated.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>REQ</name>
-              <description>Request</description>
-              <bitOffset>26</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No request is pending or the channel is currently active. Cleared when the channel is selected.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel has a transfer remaining and the channel is not selected.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>BED</name>
-              <description>Bus error on destination</description>
-              <bitOffset>28</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the write portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>BES</name>
-              <description>Bus error on source</description>
-              <bitOffset>29</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No bus error occurred.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA channel terminated with a bus error during the read portion of a transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>CE</name>
-              <description>Configuration error</description>
-              <bitOffset>30</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No configuration error exists.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>A configuration error has occurred.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-          </fields>
-        </register>
-        <register>
           <name>DSR3</name>
           <description>DMA_DSR3 register.</description>
           <addressOffset>0x13B</addressOffset>
@@ -2692,511 +1190,6 @@
           <access>read-write</access>
           <resetValue>0</resetValue>
           <resetMask>0xFF</resetMask>
-        </register>
-        <register>
-          <name>DCR3</name>
-          <description>DMA Control Register</description>
-          <addressOffset>0x13C</addressOffset>
-          <size>32</size>
-          <access>read-write</access>
-          <resetValue>0</resetValue>
-          <resetMask>0xFFFFFFFF</resetMask>
-          <fields>
-            <field>
-              <name>LCH2</name>
-              <description>Link channel 2</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>DMA Channel 0</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>DMA Channel 1</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>DMA Channel 2</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>DMA Channel 3</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>LCH1</name>
-              <description>Link channel 1</description>
-              <bitOffset>2</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>DMA Channel 0</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>DMA Channel 1</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>DMA Channel 2</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>DMA Channel 3</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>LINKCC</name>
-              <description>Link channel control</description>
-              <bitOffset>4</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>No channel-to-channel linking</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>Perform a link to channel LCH1 after each cycle-steal transfer followed by a link to LCH2 after the BCR decrements to zero</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>Perform a link to channel LCH1 after each cycle-steal transfer</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Perform a link to channel LCH1 after the BCR decrements to zero</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>D_REQ</name>
-              <description>Disable request</description>
-              <bitOffset>7</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>ERQ bit is not affected.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>ERQ bit is cleared when the BCR is exhausted.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>DMOD</name>
-              <description>Destination address modulo</description>
-              <bitOffset>8</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0000</name>
-                  <description>Buffer disabled</description>
-                  <value>#0000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0001</name>
-                  <description>Circular buffer size is 16 bytes</description>
-                  <value>#0001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0010</name>
-                  <description>Circular buffer size is 32 bytes</description>
-                  <value>#0010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0011</name>
-                  <description>Circular buffer size is 64 bytes</description>
-                  <value>#0011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0100</name>
-                  <description>Circular buffer size is 128 bytes</description>
-                  <value>#0100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0101</name>
-                  <description>Circular buffer size is 256 bytes</description>
-                  <value>#0101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0110</name>
-                  <description>Circular buffer size is 512 bytes</description>
-                  <value>#0110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0111</name>
-                  <description>Circular buffer size is 1 KB</description>
-                  <value>#0111</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1000</name>
-                  <description>Circular buffer size is 2 KB</description>
-                  <value>#1000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1001</name>
-                  <description>Circular buffer size is 4 KB</description>
-                  <value>#1001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1010</name>
-                  <description>Circular buffer size is 8 KB</description>
-                  <value>#1010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1011</name>
-                  <description>Circular buffer size is 16 KB</description>
-                  <value>#1011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1100</name>
-                  <description>Circular buffer size is 32 KB</description>
-                  <value>#1100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1101</name>
-                  <description>Circular buffer size is 64 KB</description>
-                  <value>#1101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1110</name>
-                  <description>Circular buffer size is 128 KB</description>
-                  <value>#1110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1111</name>
-                  <description>Circular buffer size is 256 KB</description>
-                  <value>#1111</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>SMOD</name>
-              <description>Source address modulo</description>
-              <bitOffset>12</bitOffset>
-              <bitWidth>4</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0000</name>
-                  <description>Buffer disabled</description>
-                  <value>#0000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0001</name>
-                  <description>Circular buffer size is 16 bytes</description>
-                  <value>#0001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0010</name>
-                  <description>Circular buffer size is 32 bytes</description>
-                  <value>#0010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0011</name>
-                  <description>Circular buffer size is 64 bytes</description>
-                  <value>#0011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0100</name>
-                  <description>Circular buffer size is 128 bytes</description>
-                  <value>#0100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0101</name>
-                  <description>Circular buffer size is 256 bytes</description>
-                  <value>#0101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0110</name>
-                  <description>Circular buffer size is 512 bytes</description>
-                  <value>#0110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>0111</name>
-                  <description>Circular buffer size is 1 KB</description>
-                  <value>#0111</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1000</name>
-                  <description>Circular buffer size is 2 KB</description>
-                  <value>#1000</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1001</name>
-                  <description>Circular buffer size is 4 KB</description>
-                  <value>#1001</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1010</name>
-                  <description>Circular buffer size is 8 KB</description>
-                  <value>#1010</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1011</name>
-                  <description>Circular buffer size is 16 KB</description>
-                  <value>#1011</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1100</name>
-                  <description>Circular buffer size is 32 KB</description>
-                  <value>#1100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1101</name>
-                  <description>Circular buffer size is 64 KB</description>
-                  <value>#1101</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1110</name>
-                  <description>Circular buffer size is 128 KB</description>
-                  <value>#1110</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1111</name>
-                  <description>Circular buffer size is 256 KB</description>
-                  <value>#1111</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>START</name>
-              <description>Start transfer</description>
-              <bitOffset>16</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>write-only</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA inactive</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DMA begins the transfer in accordance to the values in the TCDn. START is cleared automatically after one module clock and always reads as logic 0.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>DSIZE</name>
-              <description>Destination size</description>
-              <bitOffset>17</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>32-bit</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>8-bit</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>16-bit</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>DINC</name>
-              <description>Destination increment</description>
-              <bitOffset>19</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No change to the DAR after a successful transfer.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The DAR increments by 1, 2, 4 depending upon the size of the transfer.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>SSIZE</name>
-              <description>Source size</description>
-              <bitOffset>20</bitOffset>
-              <bitWidth>2</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>00</name>
-                  <description>32-bit</description>
-                  <value>#00</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>01</name>
-                  <description>8-bit</description>
-                  <value>#01</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>10</name>
-                  <description>16-bit</description>
-                  <value>#10</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>11</name>
-                  <description>Reserved (generates a configuration error (DSRn[CE]) if incorrectly specified at time of channel activation)</description>
-                  <value>#11</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>SINC</name>
-              <description>Source increment</description>
-              <bitOffset>22</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No change to SAR after a successful transfer.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>The SAR increments by 1, 2, 4 as determined by the transfer size.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>EADREQ</name>
-              <description>Enable asynchronous DMA requests</description>
-              <bitOffset>23</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>Disabled</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>Enabled</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>AA</name>
-              <description>Auto-align</description>
-              <bitOffset>28</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>Auto-align disabled</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>If SSIZE indicates a transfer no smaller than DSIZE, source accesses are auto-aligned; otherwise, destination accesses are auto-aligned. Source alignment takes precedence over destination alignment. If auto-alignment is enabled, the appropriate address register increments, regardless of DINC or SINC.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>CS</name>
-              <description>Cycle steal</description>
-              <bitOffset>29</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>DMA continuously makes read/write transfers until the BCR decrements to 0.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>Forces a single read/write transfer per request.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>ERQ</name>
-              <description>Enable peripheral request</description>
-              <bitOffset>30</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>Peripheral request is ignored.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>Enables peripheral request to initiate transfer. A software-initiated request (setting the START bit) is always enabled.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-            <field>
-              <name>EINT</name>
-              <description>Enable interrupt on completion of transfer</description>
-              <bitOffset>31</bitOffset>
-              <bitWidth>1</bitWidth>
-              <access>read-write</access>
-              <enumeratedValues>
-                <enumeratedValue>
-                  <name>0</name>
-                  <description>No interrupt is generated.</description>
-                  <value>#0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1</name>
-                  <description>Interrupt signal is enabled.</description>
-                  <value>#1</value>
-                </enumeratedValue>
-              </enumeratedValues>
-            </field>
-          </fields>
         </register>
       </registers>
     </peripheral>
@@ -3555,7 +1548,7 @@
           <fields>
             <field>
               <name>CCOBn</name>
-              <description>The FCCOB register provides a command code and relevant parameters to the memory controller</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
@@ -6575,7 +4568,7 @@
           <fields>
             <field>
               <name>CLPD</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>6</bitWidth>
               <access>read-write</access>
@@ -6593,7 +4586,7 @@
           <fields>
             <field>
               <name>CLPS</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>6</bitWidth>
               <access>read-write</access>
@@ -6611,7 +4604,7 @@
           <fields>
             <field>
               <name>CLP4</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>10</bitWidth>
               <access>read-write</access>
@@ -6629,7 +4622,7 @@
           <fields>
             <field>
               <name>CLP3</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>9</bitWidth>
               <access>read-write</access>
@@ -6647,7 +4640,7 @@
           <fields>
             <field>
               <name>CLP2</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
@@ -6665,7 +4658,7 @@
           <fields>
             <field>
               <name>CLP1</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>7</bitWidth>
               <access>read-write</access>
@@ -6683,7 +4676,7 @@
           <fields>
             <field>
               <name>CLP0</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>6</bitWidth>
               <access>read-write</access>
@@ -6701,7 +4694,7 @@
           <fields>
             <field>
               <name>CLMD</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>6</bitWidth>
               <access>read-write</access>
@@ -6719,7 +4712,7 @@
           <fields>
             <field>
               <name>CLMS</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>6</bitWidth>
               <access>read-write</access>
@@ -6737,7 +4730,7 @@
           <fields>
             <field>
               <name>CLM4</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>10</bitWidth>
               <access>read-write</access>
@@ -6755,7 +4748,7 @@
           <fields>
             <field>
               <name>CLM3</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>9</bitWidth>
               <access>read-write</access>
@@ -6773,7 +4766,7 @@
           <fields>
             <field>
               <name>CLM2</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
@@ -6791,7 +4784,7 @@
           <fields>
             <field>
               <name>CLM1</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>7</bitWidth>
               <access>read-write</access>
@@ -6809,7 +4802,7 @@
           <fields>
             <field>
               <name>CLM0</name>
-              <description>Calibration Value</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>6</bitWidth>
               <access>read-write</access>
@@ -7469,7 +5462,7 @@
           <fields>
             <field>
               <name>DATA0</name>
-              <description>When the DAC buffer is not enabled, DATA[11:0] controls the output voltage based on the following formula: V out = V in * (1 + DACDAT0[11:0])/4096 When the DAC buffer is enabled, DATA is mapped to the 16-word buffer</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
@@ -7490,7 +5483,7 @@
           <fields>
             <field>
               <name>DATA1</name>
-              <description>When the DAC Buffer is not enabled, DATA[11:0] controls the output voltage based on the following formula</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
@@ -13553,7 +11546,7 @@
             </field>
             <field>
               <name>MULT</name>
-              <description>The MULT bits define the multiplier factor mul</description>
+              <description>no description available</description>
               <bitOffset>6</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
@@ -14035,31 +12028,50 @@
               <name>FLT</name>
               <description>I2C Programmable Filter Factor</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>5</bitWidth>
+              <bitWidth>4</bitWidth>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
                   <description>No filter/bypass</description>
-                  <value>#00000</value>
+                  <value>#0</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
-              <name>STOPIE</name>
-              <description>I2C Bus Stop Interrupt Enable</description>
+              <name>STARTF</name>
+              <description>I2C Bus Start Detect Flag</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>0</name>
+                  <description>No start happens on I2C bus</description>
+                  <value>#0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1</name>
+                  <description>Start detected on I2C bus</description>
+                  <value>#1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>SSIE</name>
+              <description>I2C Bus Stop or Start Interrupt Enable</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
-                  <description>Stop detection interrupt is disabled</description>
+                  <description>Stop or start detection interrupt is disabled</description>
                   <value>#0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>1</name>
-                  <description>Stop detection interrupt is enabled</description>
+                  <description>Stop or start detection interrupt is enabled</description>
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -14314,7 +12326,7 @@
           <fields>
             <field>
               <name>SSLT</name>
-              <description>Most significant byte of SCL low timeout value that determines the timeout period of SCL low.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
@@ -14332,7 +12344,7 @@
           <fields>
             <field>
               <name>SSLT</name>
-              <description>Least significant byte of SCL low timeout value that determines the timeout period of SCL low.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
@@ -14393,7 +12405,7 @@
             </field>
             <field>
               <name>MULT</name>
-              <description>The MULT bits define the multiplier factor mul</description>
+              <description>no description available</description>
               <bitOffset>6</bitOffset>
               <bitWidth>2</bitWidth>
               <access>read-write</access>
@@ -14875,31 +12887,50 @@
               <name>FLT</name>
               <description>I2C Programmable Filter Factor</description>
               <bitOffset>0</bitOffset>
-              <bitWidth>5</bitWidth>
+              <bitWidth>4</bitWidth>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
                   <description>No filter/bypass</description>
-                  <value>#00000</value>
+                  <value>#0</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
-              <name>STOPIE</name>
-              <description>I2C Bus Stop Interrupt Enable</description>
+              <name>STARTF</name>
+              <description>I2C Bus Start Detect Flag</description>
+              <bitOffset>4</bitOffset>
+              <bitWidth>1</bitWidth>
+              <access>read-write</access>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>0</name>
+                  <description>No start happens on I2C bus</description>
+                  <value>#0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>1</name>
+                  <description>Start detected on I2C bus</description>
+                  <value>#1</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>SSIE</name>
+              <description>I2C Bus Stop or Start Interrupt Enable</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
-                  <description>Stop detection interrupt is disabled</description>
+                  <description>Stop or start detection interrupt is disabled</description>
                   <value>#0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>1</name>
-                  <description>Stop detection interrupt is enabled</description>
+                  <description>Stop or start detection interrupt is enabled</description>
                   <value>#1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -15154,7 +13185,7 @@
           <fields>
             <field>
               <name>SSLT</name>
-              <description>Most significant byte of SCL low timeout value that determines the timeout period of SCL low.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
@@ -15172,7 +13203,7 @@
           <fields>
             <field>
               <name>SSLT</name>
-              <description>Least significant byte of SCL low timeout value that determines the timeout period of SCL low.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
@@ -16091,56 +14122,56 @@
           <fields>
             <field>
               <name>R0T0</name>
-              <description>Read receive data buffer 0 or write transmit data buffer 0.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R1T1</name>
-              <description>Read receive data buffer 1 or write transmit data buffer 1.</description>
+              <description>no description available</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R2T2</name>
-              <description>Read receive data buffer 2 or write transmit data buffer 2.</description>
+              <description>no description available</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R3T3</name>
-              <description>Read receive data buffer 3 or write transmit data buffer 3.</description>
+              <description>no description available</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R4T4</name>
-              <description>Read receive data buffer 4 or write transmit data buffer 4.</description>
+              <description>no description available</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R5T5</name>
-              <description>Read receive data buffer 5 or write transmit data buffer 5.</description>
+              <description>no description available</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R6T6</name>
-              <description>Read receive data buffer 6 or write transmit data buffer 6.</description>
+              <description>no description available</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R7T7</name>
-              <description>Read receive data buffer 7 or write transmit data buffer 7.</description>
+              <description>no description available</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -17239,56 +15270,56 @@
           <fields>
             <field>
               <name>R0T0</name>
-              <description>Read receive data buffer 0 or write transmit data buffer 0.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R1T1</name>
-              <description>Read receive data buffer 1 or write transmit data buffer 1.</description>
+              <description>no description available</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R2T2</name>
-              <description>Read receive data buffer 2 or write transmit data buffer 2.</description>
+              <description>no description available</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R3T3</name>
-              <description>Read receive data buffer 3 or write transmit data buffer 3.</description>
+              <description>no description available</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R4T4</name>
-              <description>Read receive data buffer 4 or write transmit data buffer 4.</description>
+              <description>no description available</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R5T5</name>
-              <description>Read receive data buffer 5 or write transmit data buffer 5.</description>
+              <description>no description available</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R6T6</name>
-              <description>Read receive data buffer 6 or write transmit data buffer 6.</description>
+              <description>no description available</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R7T7</name>
-              <description>Read receive data buffer 7 or write transmit data buffer 7.</description>
+              <description>no description available</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -18238,56 +16269,56 @@
           <fields>
             <field>
               <name>R0T0</name>
-              <description>Read receive data buffer 0 or write transmit data buffer 0.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R1T1</name>
-              <description>Read receive data buffer 1 or write transmit data buffer 1.</description>
+              <description>no description available</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R2T2</name>
-              <description>Read receive data buffer 2 or write transmit data buffer 2.</description>
+              <description>no description available</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R3T3</name>
-              <description>Read receive data buffer 3 or write transmit data buffer 3.</description>
+              <description>no description available</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R4T4</name>
-              <description>Read receive data buffer 4 or write transmit data buffer 4.</description>
+              <description>no description available</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R5T5</name>
-              <description>Read receive data buffer 5 or write transmit data buffer 5.</description>
+              <description>no description available</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R6T6</name>
-              <description>Read receive data buffer 6 or write transmit data buffer 6.</description>
+              <description>no description available</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>R7T7</name>
-              <description>Read receive data buffer 7 or write transmit data buffer 7.</description>
+              <description>no description available</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -18389,7 +16420,7 @@
           <fields>
             <field>
               <name>NID</name>
-              <description>Ones complement of peripheral identification bits.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>6</bitWidth>
               <access>read-only</access>
@@ -18425,7 +16456,7 @@
           <fields>
             <field>
               <name>IEHOST</name>
-              <description>When this bit is set, the USB peripheral is operating in host mode.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
@@ -18450,42 +16481,42 @@
           <fields>
             <field>
               <name>AVBUSCHG</name>
-              <description>This bit is set when a change in VBUS is detected on an A device.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>B_SESS_CHG</name>
-              <description>This bit is set when a change in VBUS is detected on a B device.</description>
+              <description>no description available</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>SESSVLDCHG</name>
-              <description>This bit is set when a change in VBUS is detected indicating a session valid or a session no longer valid</description>
+              <description>no description available</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>LINE_STATE_CHG</name>
-              <description>This bit is set when the USB line state changes</description>
+              <description>no description available</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>ONEMSEC</name>
-              <description>This bit is set when the 1 millisecond timer expires</description>
+              <description>no description available</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>IDCHG</name>
-              <description>This bit is set when a change in the ID Signal from the USB connector is sensed.</description>
+              <description>no description available</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -18685,7 +16716,7 @@
             </field>
             <field>
               <name>LINESTATESTABLE</name>
-              <description>Indicates that the internal signals that control the LINE_STATE_CHG field of OTGISTAT are stable for at least 1 millisecond</description>
+              <description>no description available</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -18704,14 +16735,14 @@
             </field>
             <field>
               <name>ONEMSECEN</name>
-              <description>This bit is reserved for the 1ms count, but it is not useful to software.</description>
+              <description>no description available</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>ID</name>
-              <description>Indicates the current state of the ID pin on the USB connector</description>
+              <description>no description available</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -18828,42 +16859,42 @@
           <fields>
             <field>
               <name>USBRST</name>
-              <description>This bit is set when the USB Module has decoded a valid USB reset</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>ERROR</name>
-              <description>This bit is set when any of the error conditions within Error Interrupt Status (ERRSTAT) register occur</description>
+              <description>no description available</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>SOFTOK</name>
-              <description>This bit is set when the USB Module receives a Start Of Frame (SOF) token</description>
+              <description>no description available</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>TOKDNE</name>
-              <description>This bit is set when the current token being processed has completed</description>
+              <description>no description available</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>SLEEP</name>
-              <description>This bit is set when the USB Module detects a constant idle on the USB bus for 3 ms</description>
+              <description>no description available</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>RESUME</name>
-              <description>This bit is set depending upon the DP/DM signals, and can be used to signal remote wake-up signaling on the USB bus</description>
+              <description>no description available</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -19058,49 +17089,49 @@
           <fields>
             <field>
               <name>PIDERR</name>
-              <description>This bit is set when the PID check field fails.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>CRC5EOF</name>
-              <description>This error interrupt has two functions</description>
+              <description>no description available</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>CRC16</name>
-              <description>This bit is set when a data packet is rejected due to a CRC16 error.</description>
+              <description>no description available</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>DFN8</name>
-              <description>This bit is set if the data field received was not 8 bits in length</description>
+              <description>no description available</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>BTOERR</name>
-              <description>This bit is set when a bus turnaround timeout error occurs</description>
+              <description>no description available</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>DMAERR</name>
-              <description>This bit is set if the USB Module has requested a DMA access to read a new BDT but has not been given the bus before it needs to receive or transmit data</description>
+              <description>no description available</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>BTSERR</name>
-              <description>This bit is set when a bit stuff error is detected</description>
+              <description>no description available</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -19262,7 +17293,7 @@
           <fields>
             <field>
               <name>ODD</name>
-              <description>This bit is set if the last buffer descriptor updated was in the odd bank of the BDT.</description>
+              <description>no description available</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
@@ -19288,7 +17319,7 @@
             </field>
             <field>
               <name>ENDP</name>
-              <description>This four-bit field encodes the endpoint address that received or transmitted the previous token</description>
+              <description>no description available</description>
               <bitOffset>4</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-only</access>
@@ -19325,35 +17356,35 @@
             </field>
             <field>
               <name>ODDRST</name>
-              <description>Setting this bit to 1 resets all the BDT ODD ping/pong fields to 0, which then specifies the EVEN BDT bank</description>
+              <description>no description available</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>RESUME</name>
-              <description>When set to 1 this bit enables the USB Module to execute resume signaling</description>
+              <description>no description available</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>HOSTMODEEN</name>
-              <description>When set to 1, this bit enables the USB Module to operate in Host mode</description>
+              <description>no description available</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>RESET</name>
-              <description>Setting this bit enables the USB Module to generate USB reset signaling</description>
+              <description>no description available</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>TXSUSPENDTOKENBUSY</name>
-              <description>In Host mode, TOKEN_BUSY is set when the USB module is busy executing a USB token</description>
+              <description>no description available</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -19410,7 +17441,7 @@
           <fields>
             <field>
               <name>BDTBA</name>
-              <description>Provides address bits 15 through 9 of the BDT base address.</description>
+              <description>no description available</description>
               <bitOffset>1</bitOffset>
               <bitWidth>7</bitWidth>
               <access>read-write</access>
@@ -19428,7 +17459,7 @@
           <fields>
             <field>
               <name>FRM</name>
-              <description>This 8-bit field and the 3-bit field in the Frame Number Register High are used to compute the address where the current Buffer Descriptor Table (BDT) resides in system memory</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
@@ -19446,7 +17477,7 @@
           <fields>
             <field>
               <name>FRM</name>
-              <description>This 3-bit field and the 8-bit field in the Frame Number Register Low are used to compute the address where the current Buffer Descriptor Table (BDT) resides in system memory</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>3</bitWidth>
               <access>read-write</access>
@@ -19464,14 +17495,14 @@
           <fields>
             <field>
               <name>TOKENENDPT</name>
-              <description>Holds the Endpoint address for the token command</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>TOKENPID</name>
-              <description>Contains the token type executed by the USB module.</description>
+              <description>no description available</description>
               <bitOffset>4</bitOffset>
               <bitWidth>4</bitWidth>
               <access>read-write</access>
@@ -19506,7 +17537,7 @@
           <fields>
             <field>
               <name>CNT</name>
-              <description>Represents the SOF count threshold in byte times.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
@@ -19524,7 +17555,7 @@
           <fields>
             <field>
               <name>BDTBA</name>
-              <description>Provides address bits 23 through 16 of the BDT base address that defines the location of Buffer Descriptor Table resides in system memory</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
@@ -19542,7 +17573,7 @@
           <fields>
             <field>
               <name>BDTBA</name>
-              <description>Provides address bits 31 through 24 of the BDT base address that defines the location of Buffer Descriptor Table resides in system memory</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>8</bitWidth>
               <access>read-write</access>
@@ -19563,49 +17594,49 @@
           <fields>
             <field>
               <name>EPHSHK</name>
-              <description>When set this bit enables an endpoint to perform handshaking during a transaction to this endpoint</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>EPSTALL</name>
-              <description>When set this bit indicates that the endpoint is called</description>
+              <description>no description available</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>EPTXEN</name>
-              <description>This bit, when set, enables the endpoint for TX transfers.</description>
+              <description>no description available</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>EPRXEN</name>
-              <description>This bit, when set, enables the endpoint for RX transfers.</description>
+              <description>no description available</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>EPCTLDIS</name>
-              <description>This bit, when set, disables control (SETUP) transfers</description>
+              <description>no description available</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>RETRYDIS</name>
-              <description>This is a Host mode only bit and is present in the control register for endpoint 0 (ENDPT0) only</description>
+              <description>no description available</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>HOSTWOHUB</name>
-              <description>This is a Host mode only field and is present in the control register for endpoint 0 (ENDPT0) only</description>
+              <description>no description available</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -19623,7 +17654,7 @@
           <fields>
             <field>
               <name>PDE</name>
-              <description>Enables the weak pulldowns on the USB transceiver.</description>
+              <description>no description available</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -19642,7 +17673,7 @@
             </field>
             <field>
               <name>SUSP</name>
-              <description>Places the USB transceiver into the suspend state.</description>
+              <description>no description available</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -19672,7 +17703,7 @@
           <fields>
             <field>
               <name>DMPD</name>
-              <description>Provides observability of the D- Pulldown . signal output from the USB OTG module</description>
+              <description>no description available</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
@@ -19691,7 +17722,7 @@
             </field>
             <field>
               <name>DPPD</name>
-              <description>Provides observability of the D+ Pulldown . signal output from the USB OTG module</description>
+              <description>no description available</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
@@ -19710,7 +17741,7 @@
             </field>
             <field>
               <name>DPPU</name>
-              <description>Provides observability of the D+ Pullup . signal output from the USB OTG module</description>
+              <description>no description available</description>
               <bitOffset>7</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
@@ -19740,7 +17771,7 @@
           <fields>
             <field>
               <name>DPPULLUPNONOTG</name>
-              <description>Provides control of the DP Pullup in the USB OTG module, if USB is configured in non-OTG device mode</description>
+              <description>no description available</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -20892,7 +18923,7 @@
           <description>SPI status register</description>
           <addressOffset>0x3</addressOffset>
           <size>8</size>
-          <access>read-write</access>
+          <access>read-only</access>
           <resetValue>0x20</resetValue>
           <resetMask>0xFF</resetMask>
           <fields>
@@ -20939,7 +18970,7 @@
               <description>SPI match flag</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
@@ -21454,7 +19485,7 @@
           <description>SPI status register</description>
           <addressOffset>0x3</addressOffset>
           <size>8</size>
-          <access>read-write</access>
+          <access>read-only</access>
           <resetValue>0x20</resetValue>
           <resetMask>0xFF</resetMask>
           <fields>
@@ -21501,7 +19532,7 @@
               <description>SPI match flag</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
@@ -21585,7 +19616,7 @@
         <usage>registers</usage>
       </addressBlock>
       <interrupt>
-        <name>LLWU</name>
+        <name>LLW</name>
         <value>7</value>
       </interrupt>
       <registers>
@@ -23441,7 +21472,7 @@
           <fields>
             <field>
               <name>PMSTAT</name>
-              <description>When debug is enabled, the PMSTAT will not update to STOP or VLPS When a PSTOP mode is enabled, the PMSTAT will not update to STOP or VLPS</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>7</bitWidth>
               <access>read-only</access>
@@ -24928,7 +22959,7 @@
           <fields>
             <field>
               <name>WRAP</name>
-              <description>This bit is set to 1 automatically when the POINTER value wraps as determined by the MTB_MASTER[MASK] bit in the MASTER Trace Control Register</description>
+              <description>no description available</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -25013,14 +23044,14 @@
           <fields>
             <field>
               <name>AUTOSTOP</name>
-              <description>If this bit is 1 and WATERMARK is equal to MTB_POSITION[POINTER], then the MTB_MASTER[EN] bit is automatically set to 0</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
             <field>
               <name>AUTOHALT</name>
-              <description>If this bit is 1 and WATERMARK is equal to MTB_POSITION[POINTER], then the MTB_MASTER[HALTREQ] bit is automatically set to 1</description>
+              <description>no description available</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -25045,7 +23076,7 @@
           <fields>
             <field>
               <name>BASEADDR</name>
-              <description>This value is defined with a hardwired signal and the expression: 0x2000_0000 - (RAM_Size/4)</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25063,7 +23094,7 @@
           <fields>
             <field>
               <name>MODECTRL</name>
-              <description>Hardwired to 0x0000_0000</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25081,7 +23112,7 @@
           <fields>
             <field>
               <name>TAGSET</name>
-              <description>Hardwired to 0x0000_0000</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25099,7 +23130,7 @@
           <fields>
             <field>
               <name>TAGCLEAR</name>
-              <description>Hardwired to 0x0000_0000</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25117,7 +23148,7 @@
           <fields>
             <field>
               <name>LOCKACCESS</name>
-              <description>Hardwired to 0x0000_0000</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25135,7 +23166,7 @@
           <fields>
             <field>
               <name>LOCKSTAT</name>
-              <description>Hardwired to 0x0000_0000</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25153,28 +23184,28 @@
           <fields>
             <field>
               <name>BIT0</name>
-              <description>Connected to DBGEN.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
               <name>BIT1</name>
-              <description>Hardwired to 1.</description>
+              <description>no description available</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
               <name>BIT2</name>
-              <description>Connected to NIDEN or DBGEN signal.</description>
+              <description>no description available</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
             </field>
             <field>
               <name>BIT3</name>
-              <description>Hardwired to 1.</description>
+              <description>no description available</description>
               <bitOffset>3</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-only</access>
@@ -25192,7 +23223,7 @@
           <fields>
             <field>
               <name>DEVICEARCH</name>
-              <description>Hardwired to 0x4770_0A31.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25210,7 +23241,7 @@
           <fields>
             <field>
               <name>DEVICECFG</name>
-              <description>Hardwired to 0x0000_0000.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25228,7 +23259,7 @@
           <fields>
             <field>
               <name>DEVICETYPID</name>
-              <description>Hardwired to 0x0000_0031.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25249,7 +23280,7 @@
           <fields>
             <field>
               <name>PERIPHID</name>
-              <description>Peripheral ID4 is hardwired to 0x0000_0004; ID0 to 0x0000_0032; ID1 to 0x0000_00B9; ID2 to 0x0000_000B; and all the others to 0x0000_0000</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25607,7 +23638,7 @@
           <fields>
             <field>
               <name>DEVICECFG</name>
-              <description>Hardwired to 0x0000_0000.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25625,7 +23656,7 @@
           <fields>
             <field>
               <name>DEVICETYPID</name>
-              <description>Hardwired to 0x0000_0004.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25646,7 +23677,7 @@
           <fields>
             <field>
               <name>PERIPHID</name>
-              <description>Peripheral ID1 is hardwired to 0x0000_00E0; ID2 to 0x0000_0008; and all the others to 0x0000_0000.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25719,7 +23750,7 @@
           <fields>
             <field>
               <name>MARK</name>
-              <description>Hardwired to 0x0000_0000</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25737,7 +23768,7 @@
           <fields>
             <field>
               <name>SYSACCESS</name>
-              <description>Hardwired to 0x0000_0001</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>
@@ -25758,7 +23789,7 @@
           <fields>
             <field>
               <name>PERIPHID</name>
-              <description>Peripheral ID1 is hardwired to 0x0000_00E0; ID2 to 0x0000_0008; and all the others to 0x0000_0000.</description>
+              <description>no description available</description>
               <bitOffset>0</bitOffset>
               <bitWidth>32</bitWidth>
               <access>read-only</access>

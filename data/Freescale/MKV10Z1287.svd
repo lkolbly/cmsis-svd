@@ -5357,11 +5357,6 @@
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>0x</name>
-                  <description>Divide the system clock by 1.</description>
-                  <value>#0x</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>10</name>
                   <description>Divide the system clock by 4.</description>
                   <value>#10</value>
@@ -8964,11 +8959,6 @@
               <bitWidth>2</bitWidth>
               <access>read-write</access>
               <enumeratedValues>
-                <enumeratedValue>
-                  <name>0x</name>
-                  <description>Divide the system clock by 1.</description>
-                  <value>#0x</value>
-                </enumeratedValue>
                 <enumeratedValue>
                   <name>10</name>
                   <description>Divide the system clock by 4.</description>
@@ -12573,11 +12563,6 @@
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>0x</name>
-                  <description>Divide the system clock by 1.</description>
-                  <value>#0x</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>10</name>
                   <description>Divide the system clock by 4.</description>
                   <value>#10</value>
@@ -16180,11 +16165,6 @@
               <bitWidth>2</bitWidth>
               <access>read-write</access>
               <enumeratedValues>
-                <enumeratedValue>
-                  <name>0x</name>
-                  <description>Divide the system clock by 1.</description>
-                  <value>#0x</value>
-                </enumeratedValue>
                 <enumeratedValue>
                   <name>10</name>
                   <description>Divide the system clock by 4.</description>
@@ -19789,11 +19769,6 @@
               <access>read-write</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>0x</name>
-                  <description>Divide the system clock by 1.</description>
-                  <value>#0x</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>10</name>
                   <description>Divide the system clock by 4.</description>
                   <value>#10</value>
@@ -23396,11 +23371,6 @@
               <bitWidth>2</bitWidth>
               <access>read-write</access>
               <enumeratedValues>
-                <enumeratedValue>
-                  <name>0x</name>
-                  <description>Divide the system clock by 1.</description>
-                  <value>#0x</value>
-                </enumeratedValue>
                 <enumeratedValue>
                   <name>10</name>
                   <description>Divide the system clock by 4.</description>

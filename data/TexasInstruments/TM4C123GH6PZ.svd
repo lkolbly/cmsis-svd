@@ -5,7 +5,7 @@
   <vendorID>TI</vendorID>
   <name>TM4C123GH6PZ</name>
   <series>TM4C</series>
-  <version>11073</version>
+  <version>12591</version>
   <description>ARM Cortex-M4 Tiva TM4C Device</description>
   <licenseText>
 \n
@@ -358,7 +358,7 @@
           <name>CR</name>
           <description>GPIO Commit</description>
           <addressOffset>0x00000524</addressOffset>
-          <access>read-only</access>
+          <!--access>read-only</access-->         <!-- GM 23.03.2015 SDMDK-4561: changed to RW -->
         </register>
         <register>
           <name>AMSEL</name>
@@ -502,7 +502,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SSI_CR0_FRF_TI</name>
-                  <description>Texas Instruments Synchronous Serial Frame Format</description>
+                  <description>Synchronous Serial Frame Format</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -548,11 +548,6 @@
               <name>SSI_CR1_MS</name>
               <description>SSI Master/Slave Select</description>
               <bitRange>[2:2]</bitRange>
-            </field>
-            <field>
-              <name>SSI_CR1_SOD</name>
-              <description>SSI Slave Mode Output Disable</description>
-              <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SSI_CR1_EOT</name>
@@ -747,7 +742,7 @@
               <enumeratedValues>
                 <enumeratedValue>
                   <name>SSI_CC_CS_SYSPLL</name>
-                  <description>Either the system clock (if the PLL bypass is in effect) or the PLL output (default)</description>
+                  <description>System clock (based on clock source and divisor factor)</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -1520,7 +1515,7 @@
               <enumeratedValues>
                 <enumeratedValue>
                   <name>UART_CC_CS_SYSCLK</name>
-                  <description>The system clock (default)</description>
+                  <description>System clock (based on clock source and divisor factor)</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -1693,7 +1688,7 @@
           <fields>
             <field>
               <name>I2C_MDR_DATA</name>
-              <description>Data Transferred</description>
+              <description>This byte contains the data transferred during a transaction</description>
               <bitRange>[7:0]</bitRange>
             </field>
           </fields>
@@ -1888,8 +1883,8 @@
                   <value>0x6</value>
                 </enumeratedValue>
                 <enumeratedValue>
-                  <name>I2C_MCR2_GFPW_32</name>
-                  <description>32 clocks</description>
+                  <name>I2C_MCR2_GFPW_31</name>
+                  <description>31 clocks</description>
                   <value>0x7</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -2232,42 +2227,42 @@
           <fields>
             <field>
               <name>PWM_ENABLE_PWM0EN</name>
-              <description>PWM0 Output Enable</description>
+              <description>MnPWM0 Output Enable</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>PWM_ENABLE_PWM1EN</name>
-              <description>PWM1 Output Enable</description>
+              <description>MnPWM1 Output Enable</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>PWM_ENABLE_PWM2EN</name>
-              <description>PWM2 Output Enable</description>
+              <description>MnPWM2 Output Enable</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>PWM_ENABLE_PWM3EN</name>
-              <description>PWM3 Output Enable</description>
+              <description>MnPWM3 Output Enable</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>PWM_ENABLE_PWM4EN</name>
-              <description>PWM4 Output Enable</description>
+              <description>MnPWM4 Output Enable</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>PWM_ENABLE_PWM5EN</name>
-              <description>PWM5 Output Enable</description>
+              <description>MnPWM5 Output Enable</description>
               <bitRange>[5:5]</bitRange>
             </field>
             <field>
               <name>PWM_ENABLE_PWM6EN</name>
-              <description>PWM6 Output Enable</description>
+              <description>MnPWM6 Output Enable</description>
               <bitRange>[6:6]</bitRange>
             </field>
             <field>
               <name>PWM_ENABLE_PWM7EN</name>
-              <description>PWM7 Output Enable</description>
+              <description>MnPWM7 Output Enable</description>
               <bitRange>[7:7]</bitRange>
             </field>
           </fields>
@@ -2279,42 +2274,42 @@
           <fields>
             <field>
               <name>PWM_INVERT_PWM0INV</name>
-              <description>Invert PWM0 Signal</description>
+              <description>Invert MnPWM0 Signal</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>PWM_INVERT_PWM1INV</name>
-              <description>Invert PWM1 Signal</description>
+              <description>Invert MnPWM1 Signal</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>PWM_INVERT_PWM2INV</name>
-              <description>Invert PWM2 Signal</description>
+              <description>Invert MnPWM2 Signal</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>PWM_INVERT_PWM3INV</name>
-              <description>Invert PWM3 Signal</description>
+              <description>Invert MnPWM3 Signal</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>PWM_INVERT_PWM4INV</name>
-              <description>Invert PWM4 Signal</description>
+              <description>Invert MnPWM4 Signal</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>PWM_INVERT_PWM5INV</name>
-              <description>Invert PWM5 Signal</description>
+              <description>Invert MnPWM5 Signal</description>
               <bitRange>[5:5]</bitRange>
             </field>
             <field>
               <name>PWM_INVERT_PWM6INV</name>
-              <description>Invert PWM6 Signal</description>
+              <description>Invert MnPWM6 Signal</description>
               <bitRange>[6:6]</bitRange>
             </field>
             <field>
               <name>PWM_INVERT_PWM7INV</name>
-              <description>Invert PWM7 Signal</description>
+              <description>Invert MnPWM7 Signal</description>
               <bitRange>[7:7]</bitRange>
             </field>
           </fields>
@@ -2326,42 +2321,42 @@
           <fields>
             <field>
               <name>PWM_FAULT_FAULT0</name>
-              <description>PWM0 Fault</description>
+              <description>MnPWM0 Fault</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>PWM_FAULT_FAULT1</name>
-              <description>PWM1 Fault</description>
+              <description>MnPWM1 Fault</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>PWM_FAULT_FAULT2</name>
-              <description>PWM2 Fault</description>
+              <description>MnPWM2 Fault</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>PWM_FAULT_FAULT3</name>
-              <description>PWM3 Fault</description>
+              <description>MnPWM3 Fault</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>PWM_FAULT_FAULT4</name>
-              <description>PWM4 Fault</description>
+              <description>MnPWM4 Fault</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>PWM_FAULT_FAULT5</name>
-              <description>PWM5 Fault</description>
+              <description>MnPWM5 Fault</description>
               <bitRange>[5:5]</bitRange>
             </field>
             <field>
               <name>PWM_FAULT_FAULT6</name>
-              <description>PWM6 Fault</description>
+              <description>MnPWM6 Fault</description>
               <bitRange>[6:6]</bitRange>
             </field>
             <field>
               <name>PWM_FAULT_FAULT7</name>
-              <description>PWM7 Fault</description>
+              <description>MnPWM7 Fault</description>
               <bitRange>[7:7]</bitRange>
             </field>
           </fields>
@@ -2541,42 +2536,42 @@
           <fields>
             <field>
               <name>PWM_FAULTVAL_PWM0</name>
-              <description>PWM0 Fault Value</description>
+              <description>MnPWM0 Fault Value</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>PWM_FAULTVAL_PWM1</name>
-              <description>PWM1 Fault Value</description>
+              <description>MnPWM1 Fault Value</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>PWM_FAULTVAL_PWM2</name>
-              <description>PWM2 Fault Value</description>
+              <description>MnPWM2 Fault Value</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>PWM_FAULTVAL_PWM3</name>
-              <description>PWM3 Fault Value</description>
+              <description>MnPWM3 Fault Value</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>PWM_FAULTVAL_PWM4</name>
-              <description>PWM4 Fault Value</description>
+              <description>MnPWM4 Fault Value</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>PWM_FAULTVAL_PWM5</name>
-              <description>PWM5 Fault Value</description>
+              <description>MnPWM5 Fault Value</description>
               <bitRange>[5:5]</bitRange>
             </field>
             <field>
               <name>PWM_FAULTVAL_PWM6</name>
-              <description>PWM6 Fault Value</description>
+              <description>MnPWM6 Fault Value</description>
               <bitRange>[6:6]</bitRange>
             </field>
             <field>
               <name>PWM_FAULTVAL_PWM7</name>
-              <description>PWM7 Fault Value</description>
+              <description>MnPWM7 Fault Value</description>
               <bitRange>[7:7]</bitRange>
             </field>
           </fields>
@@ -2588,7 +2583,7 @@
           <fields>
             <field>
               <name>PWM_ENUPD_ENUPD0</name>
-              <description>PWM0 Enable Update Mode</description>
+              <description>MnPWM0 Enable Update Mode</description>
               <bitRange>[1:0]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -2610,7 +2605,7 @@
             </field>
             <field>
               <name>PWM_ENUPD_ENUPD1</name>
-              <description>PWM1 Enable Update Mode</description>
+              <description>MnPWM1 Enable Update Mode</description>
               <bitRange>[3:2]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -2632,7 +2627,7 @@
             </field>
             <field>
               <name>PWM_ENUPD_ENUPD2</name>
-              <description>PWM2 Enable Update Mode</description>
+              <description>MnPWM2 Enable Update Mode</description>
               <bitRange>[5:4]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -2654,7 +2649,7 @@
             </field>
             <field>
               <name>PWM_ENUPD_ENUPD3</name>
-              <description>PWM3 Enable Update Mode</description>
+              <description>MnPWM3 Enable Update Mode</description>
               <bitRange>[7:6]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -2676,7 +2671,7 @@
             </field>
             <field>
               <name>PWM_ENUPD_ENUPD4</name>
-              <description>PWM4 Enable Update Mode</description>
+              <description>MnPWM4 Enable Update Mode</description>
               <bitRange>[9:8]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -2698,7 +2693,7 @@
             </field>
             <field>
               <name>PWM_ENUPD_ENUPD5</name>
-              <description>PWM5 Enable Update Mode</description>
+              <description>MnPWM5 Enable Update Mode</description>
               <bitRange>[11:10]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -2720,7 +2715,7 @@
             </field>
             <field>
               <name>PWM_ENUPD_ENUPD6</name>
-              <description>PWM6 Enable Update Mode</description>
+              <description>MnPWM6 Enable Update Mode</description>
               <bitRange>[13:12]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -2742,7 +2737,7 @@
             </field>
             <field>
               <name>PWM_ENUPD_ENUPD7</name>
-              <description>PWM7 Enable Update Mode</description>
+              <description>MnPWM7 Enable Update Mode</description>
               <bitRange>[15:14]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -2889,7 +2884,7 @@
             </field>
             <field>
               <name>PWM_0_CTL_DBFALLUPD</name>
-              <description>Specifies the update mode for the PWMnDBFALL register</description>
+              <description>PWMnDBFALL Update Mode</description>
               <bitRange>[15:14]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -2938,27 +2933,27 @@
             </field>
             <field>
               <name>PWM_0_INTEN_INTCNTLOAD</name>
-              <description>Interrupt for Counter=Load</description>
+              <description>Interrupt for Counter=PWMnLOAD</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>PWM_0_INTEN_INTCMPAU</name>
-              <description>Interrupt for Counter=Comparator A Up</description>
+              <description>Interrupt for Counter=PWMnCMPA Up</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>PWM_0_INTEN_INTCMPAD</name>
-              <description>Interrupt for Counter=Comparator A Down</description>
+              <description>Interrupt for Counter=PWMnCMPA Down</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>PWM_0_INTEN_INTCMPBU</name>
-              <description>Interrupt for Counter=Comparator B Up</description>
+              <description>Interrupt for Counter=PWMnCMPB Up</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>PWM_0_INTEN_INTCMPBD</name>
-              <description>Interrupt for Counter=Comparator B Down</description>
+              <description>Interrupt for Counter=PWMnCMPB Down</description>
               <bitRange>[5:5]</bitRange>
             </field>
             <field>
@@ -2968,27 +2963,27 @@
             </field>
             <field>
               <name>PWM_0_INTEN_TRCNTLOAD</name>
-              <description>Trigger for Counter=Load</description>
+              <description>Trigger for Counter=PWMnLOAD</description>
               <bitRange>[9:9]</bitRange>
             </field>
             <field>
               <name>PWM_0_INTEN_TRCMPAU</name>
-              <description>Trigger for Counter=Comparator A Up</description>
+              <description>Trigger for Counter=PWMnCMPA Up</description>
               <bitRange>[10:10]</bitRange>
             </field>
             <field>
               <name>PWM_0_INTEN_TRCMPAD</name>
-              <description>Trigger for Counter=Comparator A Down</description>
+              <description>Trigger for Counter=PWMnCMPA Down</description>
               <bitRange>[11:11]</bitRange>
             </field>
             <field>
               <name>PWM_0_INTEN_TRCMPBU</name>
-              <description>Trigger for Counter=Comparator B Up</description>
+              <description>Trigger for Counter=PWMnCMPB Up</description>
               <bitRange>[12:12]</bitRange>
             </field>
             <field>
               <name>PWM_0_INTEN_TRCMPBD</name>
-              <description>Trigger for Counter=Comparator B Down</description>
+              <description>Trigger for Counter=PWMnCMPB Down</description>
               <bitRange>[13:13]</bitRange>
             </field>
           </fields>
@@ -3132,24 +3127,24 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTZERO_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTZERO_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTZERO_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>PWM_0_GENA_ACTLOAD</name>
-              <description>Action for Counter=Load</description>
+              <description>Action for Counter=LOAD</description>
               <bitRange>[3:2]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -3159,17 +3154,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTLOAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTLOAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTLOAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -3186,17 +3181,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTCMPAU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTCMPAU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTCMPAU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -3213,17 +3208,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTCMPAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTCMPAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTCMPAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -3240,17 +3235,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTCMPBU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTCMPBU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTCMPBU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -3267,17 +3262,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTCMPBD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTCMPBD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENA_ACTCMPBD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -3301,24 +3296,24 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTZERO_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTZERO_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTZERO_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>PWM_0_GENB_ACTLOAD</name>
-              <description>Action for Counter=Load</description>
+              <description>Action for Counter=LOAD</description>
               <bitRange>[3:2]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -3328,17 +3323,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTLOAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTLOAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTLOAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -3355,17 +3350,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTCMPAU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTCMPAU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTCMPAU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -3382,17 +3377,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTCMPAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTCMPAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTCMPAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -3409,17 +3404,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTCMPBU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTCMPBU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTCMPBU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -3436,17 +3431,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTCMPBD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTCMPBD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_0_GENB_ACTCMPBD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -3496,7 +3491,7 @@
           <fields>
             <field>
               <name>PWM_0_FLTSRC0_FAULT0</name>
-              <description>Fault0</description>
+              <description>Fault0 Input</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
@@ -3700,7 +3695,7 @@
             </field>
             <field>
               <name>PWM_1_CTL_DBFALLUPD</name>
-              <description>Specifies the update mode for the PWMnDBFALL register</description>
+              <description>PWMnDBFALL Update Mode</description>
               <bitRange>[15:14]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -3749,27 +3744,27 @@
             </field>
             <field>
               <name>PWM_1_INTEN_INTCNTLOAD</name>
-              <description>Interrupt for Counter=Load</description>
+              <description>Interrupt for Counter=PWMnLOAD</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>PWM_1_INTEN_INTCMPAU</name>
-              <description>Interrupt for Counter=Comparator A Up</description>
+              <description>Interrupt for Counter=PWMnCMPA Up</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>PWM_1_INTEN_INTCMPAD</name>
-              <description>Interrupt for Counter=Comparator A Down</description>
+              <description>Interrupt for Counter=PWMnCMPA Down</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>PWM_1_INTEN_INTCMPBU</name>
-              <description>Interrupt for Counter=Comparator B Up</description>
+              <description>Interrupt for Counter=PWMnCMPB Up</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>PWM_1_INTEN_INTCMPBD</name>
-              <description>Interrupt for Counter=Comparator B Down</description>
+              <description>Interrupt for Counter=PWMnCMPB Down</description>
               <bitRange>[5:5]</bitRange>
             </field>
             <field>
@@ -3779,27 +3774,27 @@
             </field>
             <field>
               <name>PWM_1_INTEN_TRCNTLOAD</name>
-              <description>Trigger for Counter=Load</description>
+              <description>Trigger for Counter=PWMnLOAD</description>
               <bitRange>[9:9]</bitRange>
             </field>
             <field>
               <name>PWM_1_INTEN_TRCMPAU</name>
-              <description>Trigger for Counter=Comparator A Up</description>
+              <description>Trigger for Counter=PWMnCMPA Up</description>
               <bitRange>[10:10]</bitRange>
             </field>
             <field>
               <name>PWM_1_INTEN_TRCMPAD</name>
-              <description>Trigger for Counter=Comparator A Down</description>
+              <description>Trigger for Counter=PWMnCMPA Down</description>
               <bitRange>[11:11]</bitRange>
             </field>
             <field>
               <name>PWM_1_INTEN_TRCMPBU</name>
-              <description>Trigger for Counter=Comparator B Up</description>
+              <description>Trigger for Counter=PWMnCMPB Up</description>
               <bitRange>[12:12]</bitRange>
             </field>
             <field>
               <name>PWM_1_INTEN_TRCMPBD</name>
-              <description>Trigger for Counter=Comparator B Down</description>
+              <description>Trigger for Counter=PWMnCMPB Down</description>
               <bitRange>[13:13]</bitRange>
             </field>
           </fields>
@@ -3943,24 +3938,24 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTZERO_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTZERO_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTZERO_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>PWM_1_GENA_ACTLOAD</name>
-              <description>Action for Counter=Load</description>
+              <description>Action for Counter=LOAD</description>
               <bitRange>[3:2]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -3970,17 +3965,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTLOAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTLOAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTLOAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -3997,17 +3992,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTCMPAU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTCMPAU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTCMPAU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4024,17 +4019,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTCMPAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTCMPAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTCMPAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4051,17 +4046,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTCMPBU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTCMPBU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTCMPBU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4078,17 +4073,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTCMPBD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTCMPBD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENA_ACTCMPBD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4112,24 +4107,24 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTZERO_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTZERO_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTZERO_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>PWM_1_GENB_ACTLOAD</name>
-              <description>Action for Counter=Load</description>
+              <description>Action for Counter=LOAD</description>
               <bitRange>[3:2]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -4139,17 +4134,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTLOAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTLOAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTLOAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4166,17 +4161,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTCMPAU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTCMPAU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTCMPAU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4193,17 +4188,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTCMPAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTCMPAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTCMPAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4220,17 +4215,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTCMPBU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTCMPBU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTCMPBU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4247,17 +4242,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTCMPBD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTCMPBD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_1_GENB_ACTCMPBD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4307,7 +4302,7 @@
           <fields>
             <field>
               <name>PWM_1_FLTSRC0_FAULT0</name>
-              <description>Fault0</description>
+              <description>Fault0 Input</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
@@ -4511,7 +4506,7 @@
             </field>
             <field>
               <name>PWM_2_CTL_DBFALLUPD</name>
-              <description>Specifies the update mode for the PWMnDBFALL register</description>
+              <description>PWMnDBFALL Update Mode</description>
               <bitRange>[15:14]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -4560,27 +4555,27 @@
             </field>
             <field>
               <name>PWM_2_INTEN_INTCNTLOAD</name>
-              <description>Interrupt for Counter=Load</description>
+              <description>Interrupt for Counter=PWMnLOAD</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>PWM_2_INTEN_INTCMPAU</name>
-              <description>Interrupt for Counter=Comparator A Up</description>
+              <description>Interrupt for Counter=PWMnCMPA Up</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>PWM_2_INTEN_INTCMPAD</name>
-              <description>Interrupt for Counter=Comparator A Down</description>
+              <description>Interrupt for Counter=PWMnCMPA Down</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>PWM_2_INTEN_INTCMPBU</name>
-              <description>Interrupt for Counter=Comparator B Up</description>
+              <description>Interrupt for Counter=PWMnCMPB Up</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>PWM_2_INTEN_INTCMPBD</name>
-              <description>Interrupt for Counter=Comparator B Down</description>
+              <description>Interrupt for Counter=PWMnCMPB Down</description>
               <bitRange>[5:5]</bitRange>
             </field>
             <field>
@@ -4590,27 +4585,27 @@
             </field>
             <field>
               <name>PWM_2_INTEN_TRCNTLOAD</name>
-              <description>Trigger for Counter=Load</description>
+              <description>Trigger for Counter=PWMnLOAD</description>
               <bitRange>[9:9]</bitRange>
             </field>
             <field>
               <name>PWM_2_INTEN_TRCMPAU</name>
-              <description>Trigger for Counter=Comparator A Up</description>
+              <description>Trigger for Counter=PWMnCMPA Up</description>
               <bitRange>[10:10]</bitRange>
             </field>
             <field>
               <name>PWM_2_INTEN_TRCMPAD</name>
-              <description>Trigger for Counter=Comparator A Down</description>
+              <description>Trigger for Counter=PWMnCMPA Down</description>
               <bitRange>[11:11]</bitRange>
             </field>
             <field>
               <name>PWM_2_INTEN_TRCMPBU</name>
-              <description>Trigger for Counter=Comparator B Up</description>
+              <description>Trigger for Counter=PWMnCMPB Up</description>
               <bitRange>[12:12]</bitRange>
             </field>
             <field>
               <name>PWM_2_INTEN_TRCMPBD</name>
-              <description>Trigger for Counter=Comparator B Down</description>
+              <description>Trigger for Counter=PWMnCMPB Down</description>
               <bitRange>[13:13]</bitRange>
             </field>
           </fields>
@@ -4754,24 +4749,24 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTZERO_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTZERO_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTZERO_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>PWM_2_GENA_ACTLOAD</name>
-              <description>Action for Counter=Load</description>
+              <description>Action for Counter=LOAD</description>
               <bitRange>[3:2]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -4781,17 +4776,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTLOAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTLOAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTLOAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4808,17 +4803,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTCMPAU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTCMPAU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTCMPAU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4835,17 +4830,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTCMPAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTCMPAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTCMPAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4862,17 +4857,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTCMPBU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTCMPBU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTCMPBU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4889,17 +4884,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTCMPBD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTCMPBD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENA_ACTCMPBD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4923,24 +4918,24 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTZERO_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTZERO_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTZERO_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>PWM_2_GENB_ACTLOAD</name>
-              <description>Action for Counter=Load</description>
+              <description>Action for Counter=LOAD</description>
               <bitRange>[3:2]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -4950,17 +4945,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTLOAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTLOAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTLOAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -4977,17 +4972,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTCMPAU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTCMPAU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTCMPAU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5004,17 +4999,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTCMPAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTCMPAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTCMPAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5031,17 +5026,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTCMPBU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTCMPBU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTCMPBU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5058,17 +5053,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTCMPBD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTCMPBD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_2_GENB_ACTCMPBD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5118,7 +5113,7 @@
           <fields>
             <field>
               <name>PWM_2_FLTSRC0_FAULT0</name>
-              <description>Fault0</description>
+              <description>Fault0 Input</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
@@ -5322,7 +5317,7 @@
             </field>
             <field>
               <name>PWM_3_CTL_DBFALLUPD</name>
-              <description>Specifies the update mode for the PWMnDBFALL register</description>
+              <description>PWMnDBFALL Update Mode</description>
               <bitRange>[15:14]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -5371,27 +5366,27 @@
             </field>
             <field>
               <name>PWM_3_INTEN_INTCNTLOAD</name>
-              <description>Interrupt for Counter=Load</description>
+              <description>Interrupt for Counter=PWMnLOAD</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>PWM_3_INTEN_INTCMPAU</name>
-              <description>Interrupt for Counter=Comparator A Up</description>
+              <description>Interrupt for Counter=PWMnCMPA Up</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>PWM_3_INTEN_INTCMPAD</name>
-              <description>Interrupt for Counter=Comparator A Down</description>
+              <description>Interrupt for Counter=PWMnCMPA Down</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>PWM_3_INTEN_INTCMPBU</name>
-              <description>Interrupt for Counter=Comparator B Up</description>
+              <description>Interrupt for Counter=PWMnCMPB Up</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>PWM_3_INTEN_INTCMPBD</name>
-              <description>Interrupt for Counter=Comparator B Down</description>
+              <description>Interrupt for Counter=PWMnCMPB Down</description>
               <bitRange>[5:5]</bitRange>
             </field>
             <field>
@@ -5401,27 +5396,27 @@
             </field>
             <field>
               <name>PWM_3_INTEN_TRCNTLOAD</name>
-              <description>Trigger for Counter=Load</description>
+              <description>Trigger for Counter=PWMnLOAD</description>
               <bitRange>[9:9]</bitRange>
             </field>
             <field>
               <name>PWM_3_INTEN_TRCMPAU</name>
-              <description>Trigger for Counter=Comparator A Up</description>
+              <description>Trigger for Counter=PWMnCMPA Up</description>
               <bitRange>[10:10]</bitRange>
             </field>
             <field>
               <name>PWM_3_INTEN_TRCMPAD</name>
-              <description>Trigger for Counter=Comparator A Down</description>
+              <description>Trigger for Counter=PWMnCMPA Down</description>
               <bitRange>[11:11]</bitRange>
             </field>
             <field>
               <name>PWM_3_INTEN_TRCMPBU</name>
-              <description>Trigger for Counter=Comparator B Up</description>
+              <description>Trigger for Counter=PWMnCMPB Up</description>
               <bitRange>[12:12]</bitRange>
             </field>
             <field>
               <name>PWM_3_INTEN_TRCMPBD</name>
-              <description>Trigger for Counter=Comparator B Down</description>
+              <description>Trigger for Counter=PWMnCMPB Down</description>
               <bitRange>[13:13]</bitRange>
             </field>
           </fields>
@@ -5565,24 +5560,24 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTZERO_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTZERO_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTZERO_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>PWM_3_GENA_ACTLOAD</name>
-              <description>Action for Counter=Load</description>
+              <description>Action for Counter=LOAD</description>
               <bitRange>[3:2]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -5592,17 +5587,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTLOAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTLOAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTLOAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5619,17 +5614,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTCMPAU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTCMPAU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTCMPAU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5646,17 +5641,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTCMPAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTCMPAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTCMPAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5673,17 +5668,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTCMPBU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTCMPBU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTCMPBU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5700,17 +5695,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTCMPBD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmA</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTCMPBD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmA Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENA_ACTCMPBD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmA High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5734,24 +5729,24 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTZERO_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTZERO_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTZERO_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>PWM_3_GENB_ACTLOAD</name>
-              <description>Action for Counter=Load</description>
+              <description>Action for Counter=LOAD</description>
               <bitRange>[3:2]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -5761,17 +5756,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTLOAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTLOAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTLOAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5788,17 +5783,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTCMPAU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTCMPAU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTCMPAU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5815,17 +5810,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTCMPAD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTCMPAD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTCMPAD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5842,17 +5837,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTCMPBU_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTCMPBU_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTCMPBU_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5869,17 +5864,17 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTCMPBD_INV</name>
-                  <description>Invert the output signal</description>
+                  <description>Invert pwmB</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTCMPBD_ZERO</name>
-                  <description>Set the output signal to 0</description>
+                  <description>Drive pwmB Low</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>PWM_3_GENB_ACTCMPBD_ONE</name>
-                  <description>Set the output signal to 1</description>
+                  <description>Drive pwmB High</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -5929,17 +5924,17 @@
           <fields>
             <field>
               <name>PWM_3_FLTSRC0_FAULT0</name>
-              <description>Fault0</description>
+              <description>Fault0 Input</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>PWM_3_FLTSRC0_FAULT1</name>
-              <description>Fault1</description>
+              <description>Fault1 Input</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>PWM_3_FLTSRC0_FAULT2</name>
-              <description>Fault2</description>
+              <description>Fault2 Input</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
@@ -6480,7 +6475,7 @@
             </field>
             <field>
               <name>PWM_PP_FCNT</name>
-              <description>Fault Inputs</description>
+              <description>Fault Inputs (per PWM unit)</description>
               <bitRange>[7:4]</bitRange>
             </field>
             <field>
@@ -6843,17 +6838,17 @@
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_CFG_32_BIT_TIMER</name>
-                  <description>32-bit timer configuration</description>
+                  <description>For a 16/32-bit timer, this value selects the 32-bit timer configuration</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_CFG_32_BIT_RTC</name>
-                  <description>32-bit real-time clock (RTC) counter configuration</description>
+                  <description>For a 16/32-bit timer, this value selects the 32-bit real-time clock (RTC) counter configuration</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_CFG_16_BIT</name>
-                  <description>16-bit timer configuration. The function is controlled by bits 1:0 of GPTMTAMR and GPTMTBMR</description>
+                  <description>For a 16/32-bit timer, this value selects the 16-bit timer configuration</description>
                   <value>0x4</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -7121,162 +7116,162 @@
           <fields>
             <field>
               <name>TIMER_SYNC_SYNCT0</name>
-              <description>Synchronize GPTM 16/32-Bit Timer 0</description>
+              <description>Synchronize GPTM Timer 0</description>
               <bitRange>[1:0]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT0_NONE</name>
-                  <description>GPTM 16/32-Bit Timer 0 is not affected</description>
+                  <description>GPTM0 is not affected</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT0_TA</name>
-                  <description>A timeout event for Timer A of GPTM 16/32-Bit Timer 0 is triggered</description>
+                  <description>A timeout event for Timer A of GPTM0 is triggered</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT0_TB</name>
-                  <description>A timeout event for Timer B of GPTM 16/32-Bit Timer 0 is triggered</description>
+                  <description>A timeout event for Timer B of GPTM0 is triggered</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT0_TATB</name>
-                  <description>A timeout event for both Timer A and Timer B of GPTM 16/32-Bit Timer 0 is triggered</description>
+                  <description>A timeout event for both Timer A and Timer B of GPTM0 is triggered</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>TIMER_SYNC_SYNCT1</name>
-              <description>Synchronize GPTM 16/32-Bit Timer 1</description>
+              <description>Synchronize GPTM Timer 1</description>
               <bitRange>[3:2]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT1_NONE</name>
-                  <description>GPTM 16/32-Bit Timer 1 is not affected</description>
+                  <description>GPTM1 is not affected</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT1_TA</name>
-                  <description>A timeout event for Timer A of GPTM 16/32-Bit Timer 1 is triggered</description>
+                  <description>A timeout event for Timer A of GPTM1 is triggered</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT1_TB</name>
-                  <description>A timeout event for Timer B of GPTM 16/32-Bit Timer 1 is triggered</description>
+                  <description>A timeout event for Timer B of GPTM1 is triggered</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT1_TATB</name>
-                  <description>A timeout event for both Timer A and Timer B of GPTM 16/32-Bit Timer 1 is triggered</description>
+                  <description>A timeout event for both Timer A and Timer B of GPTM1 is triggered</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>TIMER_SYNC_SYNCT2</name>
-              <description>Synchronize GPTM 16/32-Bit Timer 2</description>
+              <description>Synchronize GPTM Timer 2</description>
               <bitRange>[5:4]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT2_NONE</name>
-                  <description>GPTM 16/32-Bit Timer 2 is not affected</description>
+                  <description>GPTM2 is not affected</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT2_TA</name>
-                  <description>A timeout event for Timer A of GPTM 16/32-Bit Timer 2 is triggered</description>
+                  <description>A timeout event for Timer A of GPTM2 is triggered</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT2_TB</name>
-                  <description>A timeout event for Timer B of GPTM 16/32-Bit Timer 2 is triggered</description>
+                  <description>A timeout event for Timer B of GPTM2 is triggered</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT2_TATB</name>
-                  <description>A timeout event for both Timer A and Timer B of GPTM 16/32-Bit Timer 2 is triggered</description>
+                  <description>A timeout event for both Timer A and Timer B of GPTM2 is triggered</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>TIMER_SYNC_SYNCT3</name>
-              <description>Synchronize GPTM 16/32-Bit Timer 3</description>
+              <description>Synchronize GPTM Timer 3</description>
               <bitRange>[7:6]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT3_NONE</name>
-                  <description>GPTM 16/32-Bit Timer 3 is not affected</description>
+                  <description>GPTM3 is not affected</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT3_TA</name>
-                  <description>A timeout event for Timer A of GPTM 16/32-Bit Timer 3 is triggered</description>
+                  <description>A timeout event for Timer A of GPTM3 is triggered</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT3_TB</name>
-                  <description>A timeout event for Timer B of GPTM 16/32-Bit Timer 3 is triggered</description>
+                  <description>A timeout event for Timer B of GPTM3 is triggered</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT3_TATB</name>
-                  <description>A timeout event for both Timer A and Timer B of GPTM 16/32-Bit Timer 3 is triggered</description>
+                  <description>A timeout event for both Timer A and Timer B of GPTM3 is triggered</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>TIMER_SYNC_SYNCT4</name>
-              <description>Synchronize GPTM 16/32-Bit Timer 4</description>
+              <description>Synchronize GPTM Timer 4</description>
               <bitRange>[9:8]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT4_NONE</name>
-                  <description>GPTM 16/32-Bit Timer 4 is not affected</description>
+                  <description>GPTM4 is not affected</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT4_TA</name>
-                  <description>A timeout event for Timer A of GPTM 16/32-Bit Timer 4 is triggered</description>
+                  <description>A timeout event for Timer A of GPTM4 is triggered</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT4_TB</name>
-                  <description>A timeout event for Timer B of GPTM 16/32-Bit Timer 4 is triggered</description>
+                  <description>A timeout event for Timer B of GPTM4 is triggered</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT4_TATB</name>
-                  <description>A timeout event for both Timer A and Timer B of GPTM 16/32-Bit Timer 4 is triggered</description>
+                  <description>A timeout event for both Timer A and Timer B of GPTM4 is triggered</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>TIMER_SYNC_SYNCT5</name>
-              <description>Synchronize GPTM 16/32-Bit Timer 5</description>
+              <description>Synchronize GPTM Timer 5</description>
               <bitRange>[11:10]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT5_NONE</name>
-                  <description>GPTM 16/32-Bit Timer 5 is not affected</description>
+                  <description>GPTM5 is not affected</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT5_TA</name>
-                  <description>A timeout event for Timer A of GPTM 16/32-Bit Timer 5 is triggered</description>
+                  <description>A timeout event for Timer A of GPTM5 is triggered</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT5_TB</name>
-                  <description>A timeout event for Timer B of GPTM 16/32-Bit Timer 5 is triggered</description>
+                  <description>A timeout event for Timer B of GPTM5 is triggered</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT5_TATB</name>
-                  <description>A timeout event for both Timer A and Timer B of GPTM 16/32-Bit Timer 5 is triggered</description>
+                  <description>A timeout event for both Timer A and Timer B of GPTM5 is triggered</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -7497,7 +7492,7 @@
             </field>
             <field>
               <name>TIMER_IMR_WUEIM</name>
-              <description>GPTM Write Update Error Interrupt Mask</description>
+              <description>32/64-Bit Wide GPTM Write Update Error Interrupt Mask</description>
               <bitRange>[16:16]</bitRange>
             </field>
           </fields>
@@ -7554,7 +7549,7 @@
             </field>
             <field>
               <name>TIMER_RIS_WUERIS</name>
-              <description>GPTM Write Update Error Raw Interrupt</description>
+              <description>32/64-Bit Wide GPTM Write Update Error Raw Interrupt Status</description>
               <bitRange>[16:16]</bitRange>
             </field>
           </fields>
@@ -7611,7 +7606,7 @@
             </field>
             <field>
               <name>TIMER_MIS_WUEMIS</name>
-              <description>GPTM Write Update Error Masked Interrupt</description>
+              <description>32/64-Bit Wide GPTM Write Update Error Masked Interrupt Status</description>
               <bitRange>[16:16]</bitRange>
             </field>
           </fields>
@@ -7678,7 +7673,7 @@
             </field>
             <field>
               <name>TIMER_ICR_WUECINT</name>
-              <description>32/64-Bit GPTM Write Update Error Interrupt Clear</description>
+              <description>32/64-Bit Wide GPTM Write Update Error Interrupt Clear</description>
               <bitRange>[16:16]</bitRange>
               <access>write-only</access>
             </field>
@@ -7939,17 +7934,17 @@
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_CFG_32_BIT_TIMER</name>
-                  <description>32-bit timer configuration</description>
+                  <description>For a 16/32-bit timer, this value selects the 32-bit timer configuration</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_CFG_32_BIT_RTC</name>
-                  <description>32-bit real-time clock (RTC) counter configuration</description>
+                  <description>For a 16/32-bit timer, this value selects the 32-bit real-time clock (RTC) counter configuration</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_CFG_16_BIT</name>
-                  <description>16-bit timer configuration. The function is controlled by bits 1:0 of GPTMTAMR and GPTMTBMR</description>
+                  <description>For a 16/32-bit timer, this value selects the 16-bit timer configuration</description>
                   <value>0x4</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -8217,162 +8212,162 @@
           <fields>
             <field>
               <name>TIMER_SYNC_SYNCT0</name>
-              <description>Synchronize GPTM 16/32-Bit Timer 0</description>
+              <description>Synchronize GPTM Timer 0</description>
               <bitRange>[1:0]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT0_NONE</name>
-                  <description>GPTM 16/32-Bit Timer 0 is not affected</description>
+                  <description>GPTM0 is not affected</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT0_TA</name>
-                  <description>A timeout event for Timer A of GPTM 16/32-Bit Timer 0 is triggered</description>
+                  <description>A timeout event for Timer A of GPTM0 is triggered</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT0_TB</name>
-                  <description>A timeout event for Timer B of GPTM 16/32-Bit Timer 0 is triggered</description>
+                  <description>A timeout event for Timer B of GPTM0 is triggered</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT0_TATB</name>
-                  <description>A timeout event for both Timer A and Timer B of GPTM 16/32-Bit Timer 0 is triggered</description>
+                  <description>A timeout event for both Timer A and Timer B of GPTM0 is triggered</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>TIMER_SYNC_SYNCT1</name>
-              <description>Synchronize GPTM 16/32-Bit Timer 1</description>
+              <description>Synchronize GPTM Timer 1</description>
               <bitRange>[3:2]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT1_NONE</name>
-                  <description>GPTM 16/32-Bit Timer 1 is not affected</description>
+                  <description>GPTM1 is not affected</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT1_TA</name>
-                  <description>A timeout event for Timer A of GPTM 16/32-Bit Timer 1 is triggered</description>
+                  <description>A timeout event for Timer A of GPTM1 is triggered</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT1_TB</name>
-                  <description>A timeout event for Timer B of GPTM 16/32-Bit Timer 1 is triggered</description>
+                  <description>A timeout event for Timer B of GPTM1 is triggered</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT1_TATB</name>
-                  <description>A timeout event for both Timer A and Timer B of GPTM 16/32-Bit Timer 1 is triggered</description>
+                  <description>A timeout event for both Timer A and Timer B of GPTM1 is triggered</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>TIMER_SYNC_SYNCT2</name>
-              <description>Synchronize GPTM 16/32-Bit Timer 2</description>
+              <description>Synchronize GPTM Timer 2</description>
               <bitRange>[5:4]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT2_NONE</name>
-                  <description>GPTM 16/32-Bit Timer 2 is not affected</description>
+                  <description>GPTM2 is not affected</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT2_TA</name>
-                  <description>A timeout event for Timer A of GPTM 16/32-Bit Timer 2 is triggered</description>
+                  <description>A timeout event for Timer A of GPTM2 is triggered</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT2_TB</name>
-                  <description>A timeout event for Timer B of GPTM 16/32-Bit Timer 2 is triggered</description>
+                  <description>A timeout event for Timer B of GPTM2 is triggered</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT2_TATB</name>
-                  <description>A timeout event for both Timer A and Timer B of GPTM 16/32-Bit Timer 2 is triggered</description>
+                  <description>A timeout event for both Timer A and Timer B of GPTM2 is triggered</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>TIMER_SYNC_SYNCT3</name>
-              <description>Synchronize GPTM 16/32-Bit Timer 3</description>
+              <description>Synchronize GPTM Timer 3</description>
               <bitRange>[7:6]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT3_NONE</name>
-                  <description>GPTM 16/32-Bit Timer 3 is not affected</description>
+                  <description>GPTM3 is not affected</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT3_TA</name>
-                  <description>A timeout event for Timer A of GPTM 16/32-Bit Timer 3 is triggered</description>
+                  <description>A timeout event for Timer A of GPTM3 is triggered</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT3_TB</name>
-                  <description>A timeout event for Timer B of GPTM 16/32-Bit Timer 3 is triggered</description>
+                  <description>A timeout event for Timer B of GPTM3 is triggered</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT3_TATB</name>
-                  <description>A timeout event for both Timer A and Timer B of GPTM 16/32-Bit Timer 3 is triggered</description>
+                  <description>A timeout event for both Timer A and Timer B of GPTM3 is triggered</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>TIMER_SYNC_SYNCT4</name>
-              <description>Synchronize GPTM 16/32-Bit Timer 4</description>
+              <description>Synchronize GPTM Timer 4</description>
               <bitRange>[9:8]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT4_NONE</name>
-                  <description>GPTM 16/32-Bit Timer 4 is not affected</description>
+                  <description>GPTM4 is not affected</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT4_TA</name>
-                  <description>A timeout event for Timer A of GPTM 16/32-Bit Timer 4 is triggered</description>
+                  <description>A timeout event for Timer A of GPTM4 is triggered</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT4_TB</name>
-                  <description>A timeout event for Timer B of GPTM 16/32-Bit Timer 4 is triggered</description>
+                  <description>A timeout event for Timer B of GPTM4 is triggered</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT4_TATB</name>
-                  <description>A timeout event for both Timer A and Timer B of GPTM 16/32-Bit Timer 4 is triggered</description>
+                  <description>A timeout event for both Timer A and Timer B of GPTM4 is triggered</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>TIMER_SYNC_SYNCT5</name>
-              <description>Synchronize GPTM 16/32-Bit Timer 5</description>
+              <description>Synchronize GPTM Timer 5</description>
               <bitRange>[11:10]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT5_NONE</name>
-                  <description>GPTM 16/32-Bit Timer 5 is not affected</description>
+                  <description>GPTM5 is not affected</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT5_TA</name>
-                  <description>A timeout event for Timer A of GPTM 16/32-Bit Timer 5 is triggered</description>
+                  <description>A timeout event for Timer A of GPTM5 is triggered</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT5_TB</name>
-                  <description>A timeout event for Timer B of GPTM 16/32-Bit Timer 5 is triggered</description>
+                  <description>A timeout event for Timer B of GPTM5 is triggered</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>TIMER_SYNC_SYNCT5_TATB</name>
-                  <description>A timeout event for both Timer A and Timer B of GPTM 16/32-Bit Timer 5 is triggered</description>
+                  <description>A timeout event for both Timer A and Timer B of GPTM5 is triggered</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -8593,7 +8588,7 @@
             </field>
             <field>
               <name>TIMER_IMR_WUEIM</name>
-              <description>GPTM Write Update Error Interrupt Mask</description>
+              <description>32/64-Bit Wide GPTM Write Update Error Interrupt Mask</description>
               <bitRange>[16:16]</bitRange>
             </field>
           </fields>
@@ -8650,7 +8645,7 @@
             </field>
             <field>
               <name>TIMER_RIS_WUERIS</name>
-              <description>GPTM Write Update Error Raw Interrupt</description>
+              <description>32/64-Bit Wide GPTM Write Update Error Raw Interrupt Status</description>
               <bitRange>[16:16]</bitRange>
             </field>
           </fields>
@@ -8707,7 +8702,7 @@
             </field>
             <field>
               <name>TIMER_MIS_WUEMIS</name>
-              <description>GPTM Write Update Error Masked Interrupt</description>
+              <description>32/64-Bit Wide GPTM Write Update Error Masked Interrupt Status</description>
               <bitRange>[16:16]</bitRange>
             </field>
           </fields>
@@ -8774,7 +8769,7 @@
             </field>
             <field>
               <name>TIMER_ICR_WUECINT</name>
-              <description>32/64-Bit GPTM Write Update Error Interrupt Clear</description>
+              <description>32/64-Bit Wide GPTM Write Update Error Interrupt Clear</description>
               <bitRange>[16:16]</bitRange>
               <access>write-only</access>
             </field>
@@ -9214,7 +9209,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM0_EXTERNAL</name>
-                  <description>External (GPIO PB4)</description>
+                  <description>External (GPIO Pins)</description>
                   <value>0x4</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -9224,22 +9219,22 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM0_PWM0</name>
-                  <description>PWM0</description>
+                  <description>PWM generator 0</description>
                   <value>0x6</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM0_PWM1</name>
-                  <description>PWM1</description>
+                  <description>PWM generator 1</description>
                   <value>0x7</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM0_PWM2</name>
-                  <description>PWM2</description>
+                  <description>PWM generator 2</description>
                   <value>0x8</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM0_PWM3</name>
-                  <description>PWM3</description>
+                  <description>PWM generator 3</description>
                   <value>0x9</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -9276,7 +9271,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM1_EXTERNAL</name>
-                  <description>External (GPIO PB4)</description>
+                  <description>External (GPIO Pins)</description>
                   <value>0x4</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -9286,22 +9281,22 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM1_PWM0</name>
-                  <description>PWM0</description>
+                  <description>PWM generator 0</description>
                   <value>0x6</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM1_PWM1</name>
-                  <description>PWM1</description>
+                  <description>PWM generator 1</description>
                   <value>0x7</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM1_PWM2</name>
-                  <description>PWM2</description>
+                  <description>PWM generator 2</description>
                   <value>0x8</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM1_PWM3</name>
-                  <description>PWM3</description>
+                  <description>PWM generator 3</description>
                   <value>0x9</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -9338,7 +9333,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM2_EXTERNAL</name>
-                  <description>External (GPIO PB4)</description>
+                  <description>External (GPIO Pins)</description>
                   <value>0x4</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -9348,22 +9343,22 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM2_PWM0</name>
-                  <description>PWM0</description>
+                  <description>PWM generator 0</description>
                   <value>0x6</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM2_PWM1</name>
-                  <description>PWM1</description>
+                  <description>PWM generator 1</description>
                   <value>0x7</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM2_PWM2</name>
-                  <description>PWM2</description>
+                  <description>PWM generator 2</description>
                   <value>0x8</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM2_PWM3</name>
-                  <description>PWM3</description>
+                  <description>PWM generator 3</description>
                   <value>0x9</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -9400,7 +9395,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM3_EXTERNAL</name>
-                  <description>External (GPIO PB4)</description>
+                  <description>External (GPIO Pins)</description>
                   <value>0x4</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -9410,22 +9405,22 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM3_PWM0</name>
-                  <description>PWM0</description>
+                  <description>PWM generator 0</description>
                   <value>0x6</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM3_PWM1</name>
-                  <description>PWM1</description>
+                  <description>PWM generator 1</description>
                   <value>0x7</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM3_PWM2</name>
-                  <description>PWM2</description>
+                  <description>PWM generator 2</description>
                   <value>0x8</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_EMUX_EM3_PWM3</name>
-                  <description>PWM3</description>
+                  <description>PWM generator 3</description>
                   <value>0x9</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -9471,68 +9466,68 @@
           <fields>
             <field>
               <name>ADC_TSSEL_PS0</name>
-              <description>PWM Unit Select</description>
+              <description>Generator 0 PWM Module Trigger Select</description>
               <bitRange>[5:4]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>ADC_TSSEL_PS0_0</name>
-                  <description>PWM Unit 0</description>
+                  <description>Use Generator 0 (and its trigger) in PWM module 0</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_TSSEL_PS0_1</name>
-                  <description>PWM Unit 1</description>
+                  <description>Use Generator 0 (and its trigger) in PWM module 1</description>
                   <value>0x1</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>ADC_TSSEL_PS1</name>
-              <description>PWM Unit Select</description>
+              <description>Generator 1 PWM Module Trigger Select</description>
               <bitRange>[13:12]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>ADC_TSSEL_PS1_0</name>
-                  <description>PWM Unit 0</description>
+                  <description>Use Generator 1 (and its trigger) in PWM module 0</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_TSSEL_PS1_1</name>
-                  <description>PWM Unit 1</description>
+                  <description>Use Generator 1 (and its trigger) in PWM module 1</description>
                   <value>0x1</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>ADC_TSSEL_PS2</name>
-              <description>PWM Unit Select</description>
+              <description>Generator 2 PWM Module Trigger Select</description>
               <bitRange>[21:20]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>ADC_TSSEL_PS2_0</name>
-                  <description>PWM Unit 0</description>
+                  <description>Use Generator 2 (and its trigger) in PWM module 0</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_TSSEL_PS2_1</name>
-                  <description>PWM Unit 1</description>
+                  <description>Use Generator 2 (and its trigger) in PWM module 1</description>
                   <value>0x1</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
             <field>
               <name>ADC_TSSEL_PS3</name>
-              <description>PWM Unit Select</description>
+              <description>Generator 3 PWM Module Trigger Select</description>
               <bitRange>[29:28]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>ADC_TSSEL_PS3_0</name>
-                  <description>PWM Unit 0</description>
+                  <description>Use Generator 3 (and its trigger) in PWM module 0</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_TSSEL_PS3_1</name>
-                  <description>PWM Unit 1</description>
+                  <description>Use Generator 3 (and its trigger) in PWM module 1</description>
                   <value>0x1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -9801,16 +9796,16 @@
             <field>
               <name>ADC_CTL_VREF</name>
               <description>Voltage Reference Select</description>
-              <bitRange>[1:0]</bitRange>
+              <bitRange>[0:0]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>ADC_CTL_VREF_INTERNAL</name>
-                  <description>The internal reference as the voltage reference</description>
+                  <description>VDDA and GNDA are the voltage references</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>ADC_CTL_VREF_EXT_3V</name>
-                  <description>A 3.0 V external VREFA input is the voltage reference. The ADC conversion range is 0.0 V to the external reference value</description>
+                  <description>The external VREFA+ and VREFA- inputs are the voltage references</description>
                   <value>0x1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -9876,7 +9871,7 @@
           <fields>
             <field>
               <name>ADC_SSCTL0_D0</name>
-              <description>1st Sample Diff Input Select</description>
+              <description>1st Sample Differential Input Select</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
@@ -9896,7 +9891,7 @@
             </field>
             <field>
               <name>ADC_SSCTL0_D1</name>
-              <description>2nd Sample Diff Input Select</description>
+              <description>2nd Sample Differential Input Select</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
@@ -9916,7 +9911,7 @@
             </field>
             <field>
               <name>ADC_SSCTL0_D2</name>
-              <description>3rd Sample Diff Input Select</description>
+              <description>3rd Sample Differential Input Select</description>
               <bitRange>[8:8]</bitRange>
             </field>
             <field>
@@ -9936,7 +9931,7 @@
             </field>
             <field>
               <name>ADC_SSCTL0_D3</name>
-              <description>4th Sample Diff Input Select</description>
+              <description>4th Sample Differential Input Select</description>
               <bitRange>[12:12]</bitRange>
             </field>
             <field>
@@ -9956,7 +9951,7 @@
             </field>
             <field>
               <name>ADC_SSCTL0_D4</name>
-              <description>5th Sample Diff Input Select</description>
+              <description>5th Sample Differential Input Select</description>
               <bitRange>[16:16]</bitRange>
             </field>
             <field>
@@ -9976,7 +9971,7 @@
             </field>
             <field>
               <name>ADC_SSCTL0_D5</name>
-              <description>6th Sample Diff Input Select</description>
+              <description>6th Sample Differential Input Select</description>
               <bitRange>[20:20]</bitRange>
             </field>
             <field>
@@ -9996,7 +9991,7 @@
             </field>
             <field>
               <name>ADC_SSCTL0_D6</name>
-              <description>7th Sample Diff Input Select</description>
+              <description>7th Sample Differential Input Select</description>
               <bitRange>[24:24]</bitRange>
             </field>
             <field>
@@ -10016,7 +10011,7 @@
             </field>
             <field>
               <name>ADC_SSCTL0_D7</name>
-              <description>8th Sample Diff Input Select</description>
+              <description>8th Sample Differential Input Select</description>
               <bitRange>[28:28]</bitRange>
             </field>
             <field>
@@ -10250,7 +10245,7 @@
           <fields>
             <field>
               <name>ADC_SSCTL1_D0</name>
-              <description>1st Sample Diff Input Select</description>
+              <description>1st Sample Differential Input Select</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
@@ -10270,7 +10265,7 @@
             </field>
             <field>
               <name>ADC_SSCTL1_D1</name>
-              <description>2nd Sample Diff Input Select</description>
+              <description>2nd Sample Differential Input Select</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
@@ -10290,7 +10285,7 @@
             </field>
             <field>
               <name>ADC_SSCTL1_D2</name>
-              <description>3rd Sample Diff Input Select</description>
+              <description>3rd Sample Differential Input Select</description>
               <bitRange>[8:8]</bitRange>
             </field>
             <field>
@@ -10310,7 +10305,7 @@
             </field>
             <field>
               <name>ADC_SSCTL1_D3</name>
-              <description>4th Sample Diff Input Select</description>
+              <description>4th Sample Differential Input Select</description>
               <bitRange>[12:12]</bitRange>
             </field>
             <field>
@@ -10484,7 +10479,7 @@
           <fields>
             <field>
               <name>ADC_SSCTL2_D0</name>
-              <description>1st Sample Diff Input Select</description>
+              <description>1st Sample Differential Input Select</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
@@ -10504,7 +10499,7 @@
             </field>
             <field>
               <name>ADC_SSCTL2_D1</name>
-              <description>2nd Sample Diff Input Select</description>
+              <description>2nd Sample Differential Input Select</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
@@ -10524,7 +10519,7 @@
             </field>
             <field>
               <name>ADC_SSCTL2_D2</name>
-              <description>3rd Sample Diff Input Select</description>
+              <description>3rd Sample Differential Input Select</description>
               <bitRange>[8:8]</bitRange>
             </field>
             <field>
@@ -10544,7 +10539,7 @@
             </field>
             <field>
               <name>ADC_SSCTL2_D3</name>
-              <description>4th Sample Diff Input Select</description>
+              <description>4th Sample Differential Input Select</description>
               <bitRange>[12:12]</bitRange>
             </field>
             <field>
@@ -10703,17 +10698,17 @@
           <fields>
             <field>
               <name>ADC_SSCTL3_D0</name>
-              <description>1st Sample Diff Input Select</description>
+              <description>Sample Differential Input Select</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>ADC_SSCTL3_END0</name>
-              <description>1st Sample is End of Sequence</description>
+              <description>End of Sequence</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>ADC_SSCTL3_IE0</name>
-              <description>1st Sample Interrupt Enable</description>
+              <description>Sample Interrupt Enable</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
@@ -12070,7 +12065,7 @@
               <enumeratedValues>
                 <enumeratedValue>
                   <name>ADC_CC_CS_SYSPLL</name>
-                  <description>Either the system clock (if the PLL bypass is in effect) or the 16 MHz clock derived from PLL / 25 (default)</description>
+                  <description>PLL VCO divided by CLKDIV</description>
                   <value>0x0</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -12414,7 +12409,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>COMP_ACCTL1_ASRCP_REF</name>
-                  <description>Internal voltage reference (VIREF)</description>
+                  <description>Internal voltage reference</description>
                   <value>0x2</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -12529,7 +12524,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>COMP_ACCTL2_ASRCP_REF</name>
-                  <description>Internal voltage reference (VIREF)</description>
+                  <description>Internal voltage reference</description>
                   <value>0x2</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -13780,17 +13775,17 @@
             </field>
             <field>
               <name>USB_IS_DISCON</name>
-              <description>Session Disconnect</description>
+              <description>Session Disconnect (OTG only)</description>
               <bitRange>[5:5]</bitRange>
             </field>
             <field>
               <name>USB_IS_SESREQ</name>
-              <description>SESSION REQUEST</description>
+              <description>SESSION REQUEST (OTG only)</description>
               <bitRange>[6:6]</bitRange>
             </field>
             <field>
               <name>USB_IS_VBUSERR</name>
-              <description>VBUS Error</description>
+              <description>VBUS Error (OTG only)</description>
               <bitRange>[7:7]</bitRange>
             </field>
           </fields>
@@ -13847,12 +13842,12 @@
             </field>
             <field>
               <name>USB_IE_SESREQ</name>
-              <description>Enable Session Request</description>
+              <description>Enable Session Request (OTG only)</description>
               <bitRange>[6:6]</bitRange>
             </field>
             <field>
               <name>USB_IE_VBUSERR</name>
-              <description>Enable VBUS Error Interrupt</description>
+              <description>Enable VBUS Error Interrupt (OTG only)</description>
               <bitRange>[7:7]</bitRange>
             </field>
           </fields>
@@ -14024,12 +14019,12 @@
           <fields>
             <field>
               <name>USB_DEVCTL_SESSION</name>
-              <description>Session Start/End</description>
+              <description>Session Start/End (OTG only)</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>USB_DEVCTL_HOSTREQ</name>
-              <description>Host Request</description>
+              <description>Host Request (OTG only)</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
@@ -14039,7 +14034,7 @@
             </field>
             <field>
               <name>USB_DEVCTL_VBUS</name>
-              <description>VBUS Level</description>
+              <description>VBUS Level (OTG only)</description>
               <bitRange>[4:3]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
@@ -14076,7 +14071,7 @@
             </field>
             <field>
               <name>USB_DEVCTL_DEV</name>
-              <description>Device Mode</description>
+              <description>Device Mode (OTG only)</description>
               <bitRange>[7:7]</bitRange>
             </field>
           </fields>
@@ -18515,12 +18510,12 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>USB_EPC_EPEN_VBLOW</name>
-                  <description>Power Enable High if VBUS Low</description>
+                  <description>Power Enable High if VBUS Low (OTG only)</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>USB_EPC_EPEN_VBHIGH</name>
-                  <description>Power Enable High if VBUS High</description>
+                  <description>Power Enable High if VBUS High (OTG only)</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -19006,11 +19001,6 @@
               <description>Write Busy</description>
               <bitRange>[5:5]</bitRange>
             </field>
-            <field>
-              <name>EEPROM_EEDONE_INVPL</name>
-              <description>Invalid Program Voltage Level</description>
-              <bitRange>[8:8]</bitRange>
-            </field>
           </fields>
         </register>
         <register>
@@ -19018,16 +19008,6 @@
           <description>EEPROM Support Control and Status</description>
           <addressOffset>0x0000001C</addressOffset>
           <fields>
-            <field>
-              <name>EEPROM_EESUPP_START</name>
-              <description>Start Erase</description>
-              <bitRange>[0:0]</bitRange>
-            </field>
-            <field>
-              <name>EEPROM_EESUPP_EREQ</name>
-              <description>Erase Required</description>
-              <bitRange>[1:1]</bitRange>
-            </field>
             <field>
               <name>EEPROM_EESUPP_ERETRY</name>
               <description>Erase Must Be Retried</description>
@@ -19430,7 +19410,7 @@
             </field>
             <field>
               <name>HIB_CTL_PINWEN</name>
-              <description>External WAKE Pin Enable</description>
+              <description>External Wake Pin Enable</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
@@ -19595,17 +19575,17 @@
             </field>
             <field>
               <name>HIB_IC_LOWBAT</name>
-              <description>Low Battery Voltage Masked Interrupt Clear</description>
+              <description>Low Battery Voltage Interrupt Clear</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>HIB_IC_EXTW</name>
-              <description>External Wake-Up Masked Interrupt Clear</description>
+              <description>External Wake-Up Interrupt Clear</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>HIB_IC_WC</name>
-              <description>Write Complete/Capable Masked Interrupt Clear</description>
+              <description>Write Complete/Capable Interrupt Clear</description>
               <bitRange>[4:4]</bitRange>
             </field>
           </fields>
@@ -19749,7 +19729,7 @@
             </field>
             <field>
               <name>FLASH_FCRIS_VOLTRIS</name>
-              <description>VOLTSTAT Raw Interrupt Status</description>
+              <description>Pump Voltage Raw Interrupt Status</description>
               <bitRange>[9:9]</bitRange>
             </field>
             <field>
@@ -19759,12 +19739,12 @@
             </field>
             <field>
               <name>FLASH_FCRIS_ERRIS</name>
-              <description>ERVER Raw Interrupt Status</description>
+              <description>Erase Verify Error Raw Interrupt Status</description>
               <bitRange>[11:11]</bitRange>
             </field>
             <field>
               <name>FLASH_FCRIS_PROGRIS</name>
-              <description>PROGVER Raw Interrupt Status</description>
+              <description>Program Verify Error Raw Interrupt Status</description>
               <bitRange>[13:13]</bitRange>
             </field>
           </fields>
@@ -19900,41 +19880,6 @@
               <bitRange>[15:0]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>FLASH_FSIZE_SIZE_8KB</name>
-                  <description>8 KB of Flash</description>
-                  <value>0x3</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>FLASH_FSIZE_SIZE_16KB</name>
-                  <description>16 KB of Flash</description>
-                  <value>0x7</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>FLASH_FSIZE_SIZE_32KB</name>
-                  <description>32 KB of Flash</description>
-                  <value>0xf</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>FLASH_FSIZE_SIZE_64KB</name>
-                  <description>64 KB of Flash</description>
-                  <value>0x1f</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>FLASH_FSIZE_SIZE_96KB</name>
-                  <description>96 KB of Flash</description>
-                  <value>0x2f</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>FLASH_FSIZE_SIZE_128KB</name>
-                  <description>128 KB of Flash</description>
-                  <value>0x3f</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>FLASH_FSIZE_SIZE_192KB</name>
-                  <description>192 KB of Flash</description>
-                  <value>0x5f</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>FLASH_FSIZE_SIZE_256KB</name>
                   <description>256 KB of Flash</description>
                   <value>0x7f</value>
@@ -19953,46 +19898,6 @@
               <description>SRAM Size</description>
               <bitRange>[15:0]</bitRange>
               <enumeratedValues>
-                <enumeratedValue>
-                  <name>FLASH_SSIZE_SIZE_2KB</name>
-                  <description>2 KB of SRAM</description>
-                  <value>0x7</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>FLASH_SSIZE_SIZE_4KB</name>
-                  <description>4 KB of SRAM</description>
-                  <value>0xf</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>FLASH_SSIZE_SIZE_6KB</name>
-                  <description>6 KB of SRAM</description>
-                  <value>0x17</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>FLASH_SSIZE_SIZE_8KB</name>
-                  <description>8 KB of SRAM</description>
-                  <value>0x1f</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>FLASH_SSIZE_SIZE_12KB</name>
-                  <description>12 KB of SRAM</description>
-                  <value>0x2f</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>FLASH_SSIZE_SIZE_16KB</name>
-                  <description>16 KB of SRAM</description>
-                  <value>0x3f</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>FLASH_SSIZE_SIZE_20KB</name>
-                  <description>20 KB of SRAM</description>
-                  <value>0x4f</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>FLASH_SSIZE_SIZE_24KB</name>
-                  <description>24 KB of SRAM</description>
-                  <value>0x5f</value>
-                </enumeratedValue>
                 <enumeratedValue>
                   <name>FLASH_SSIZE_SIZE_32KB</name>
                   <description>32 KB of SRAM</description>
@@ -20321,8 +20226,8 @@
               <bitRange>[23:16]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>SYSCTL_DID0_CLASS_BLIZZARD</name>
-                  <description>Tiva(TM) C Series Blizzard-class microcontrollers</description>
+                  <name>SYSCTL_DID0_CLASS_TM4C123</name>
+                  <description>Tiva TM4C123x and TM4E123x microcontrollers</description>
                   <value>0x5</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -20334,7 +20239,7 @@
               <enumeratedValues>
                 <enumeratedValue>
                   <name>SYSCTL_DID0_VER_1</name>
-                  <description>Second version of the DID0 register format</description>
+                  <description>Second version of the DID0 register format.</description>
                   <value>0x1</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -20379,13 +20284,8 @@
               <bitRange>[4:3]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>SYSCTL_DID1_PKG_SOIC</name>
-                  <description>SOIC package</description>
-                  <value>0x0</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>SYSCTL_DID1_PKG_QFP</name>
-                  <description>LQFP package</description>
+                  <description>QFP package</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -20401,19 +20301,19 @@
               <bitRange>[7:5]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>SYSCTL_DID1_TEMP_C</name>
-                  <description>Commercial temperature range (0C to 70C)</description>
-                  <value>0x0</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>SYSCTL_DID1_TEMP_I</name>
-                  <description>Industrial temperature range (-40C to 85C)</description>
+                  <description>Industrial temperature range</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SYSCTL_DID1_TEMP_E</name>
-                  <description>Extended temperature range (-40C to 105C)</description>
+                  <description>Extended temperature range</description>
                   <value>0x2</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_DID1_TEMP_IE</name>
+                  <description>Available in both industrial temperature range (-40C to 85C) and extended temperature range (-40C to 105C) devices. See</description>
+                  <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -20423,34 +20323,29 @@
               <bitRange>[15:13]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>SYSCTL_DID1_PINCNT_28</name>
-                  <description>28-pin package</description>
-                  <value>0x0</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>SYSCTL_DID1_PINCNT_48</name>
-                  <description>48-pin package</description>
-                  <value>0x1</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>SYSCTL_DID1_PINCNT_100</name>
-                  <description>100-pin package</description>
+                  <description>100-pin LQFP package</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SYSCTL_DID1_PINCNT_64</name>
-                  <description>64-pin package</description>
+                  <description>64-pin LQFP package</description>
                   <value>0x3</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SYSCTL_DID1_PINCNT_144</name>
-                  <description>144-pin package</description>
+                  <description>144-pin LQFP package</description>
                   <value>0x4</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SYSCTL_DID1_PINCNT_157</name>
-                  <description>157-pin package</description>
+                  <description>157-pin BGA package</description>
                   <value>0x5</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_DID1_PINCNT_128</name>
+                  <description>128-pin TQFP package</description>
+                  <value>0x6</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -20682,13 +20577,13 @@
               <bitRange>[15:12]</bitRange>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>SYSCTL_DC1_MINSYSDIV_100</name>
-                  <description>Divide VCO (400MHZ) by 5 minimum</description>
+                  <name>SYSCTL_DC1_MINSYSDIV_80</name>
+                  <description>Specifies an 80-MHz CPU clock with a PLL divider of 2.5</description>
                   <value>0x1</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SYSCTL_DC1_MINSYSDIV_66</name>
-                  <description>Divide VCO (400MHZ) by 2*2 + 2 = 6 minimum</description>
+                  <description>Specifies a 66-MHz CPU clock with a PLL divider of 3</description>
                   <value>0x2</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -20984,32 +20879,32 @@
             </field>
             <field>
               <name>SYSCTL_DC3_CCP0</name>
-              <description>CCP0 Pin Present</description>
+              <description>T0CCP0 Pin Present</description>
               <bitRange>[24:24]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC3_CCP1</name>
-              <description>CCP1 Pin Present</description>
+              <description>T0CCP1 Pin Present</description>
               <bitRange>[25:25]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC3_CCP2</name>
-              <description>CCP2 Pin Present</description>
+              <description>T1CCP0 Pin Present</description>
               <bitRange>[26:26]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC3_CCP3</name>
-              <description>CCP3 Pin Present</description>
+              <description>T1CCP1 Pin Present</description>
               <bitRange>[27:27]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC3_CCP4</name>
-              <description>CCP4 Pin Present</description>
+              <description>T2CCP0 Pin Present</description>
               <bitRange>[28:28]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC3_CCP5</name>
-              <description>CCP5 Pin Present</description>
+              <description>T2CCP1 Pin Present</description>
               <bitRange>[29:29]</bitRange>
             </field>
             <field>
@@ -21081,12 +20976,12 @@
             </field>
             <field>
               <name>SYSCTL_DC4_CCP6</name>
-              <description>CCP6 Pin Present</description>
+              <description>T3CCP0 Pin Present</description>
               <bitRange>[14:14]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC4_CCP7</name>
-              <description>CCP7 Pin Present</description>
+              <description>T3CCP1 Pin Present</description>
               <bitRange>[15:15]</bitRange>
             </field>
             <field>
@@ -21229,164 +21124,164 @@
           <fields>
             <field>
               <name>SYSCTL_DC7_DMACH0</name>
-              <description>USB_EP1_RX / UART2_RX</description>
+              <description>DMA Channel 0</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH1</name>
-              <description>USB_EP1_TX / UART2_TX</description>
+              <description>DMA Channel 1</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH2</name>
-              <description>USB_EP2_RX / Timer3A</description>
+              <description>DMA Channel 2</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH3</name>
-              <description>USB_EP2_TX / Timer3B</description>
+              <description>DMA Channel 3</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH4</name>
-              <description>USB_EP3_RX / Timer2A</description>
+              <description>DMA Channel 4</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH5</name>
-              <description>USB_EP3_TX / Timer2B</description>
+              <description>DMA Channel 5</description>
               <bitRange>[5:5]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH6</name>
-              <description>ETH_RX / Timer2A</description>
+              <description>DMA Channel 6</description>
               <bitRange>[6:6]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH7</name>
-              <description>ETH_TX / Timer2B</description>
+              <description>DMA Channel 7</description>
               <bitRange>[7:7]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH8</name>
-              <description>UART0_RX / UART1_RX</description>
+              <description>DMA Channel 8</description>
               <bitRange>[8:8]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH9</name>
-              <description>UART0_TX / UART1_TX</description>
+              <description>DMA Channel 9</description>
               <bitRange>[9:9]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH10</name>
-              <description>SSI0_RX / SSI1_RX</description>
+              <description>DMA Channel 10</description>
               <bitRange>[10:10]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH11</name>
-              <description>SSI0_TX / SSI1_TX</description>
+              <description>DMA Channel 11</description>
               <bitRange>[11:11]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH12</name>
-              <description>CAN0_RX / UART2_RX</description>
+              <description>DMA Channel 12</description>
               <bitRange>[12:12]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH13</name>
-              <description>CAN0_TX / UART2_TX</description>
+              <description>DMA Channel 13</description>
               <bitRange>[13:13]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH14</name>
-              <description>ADC0_SS0 / Timer2A</description>
+              <description>DMA Channel 14</description>
               <bitRange>[14:14]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH15</name>
-              <description>ADC0_SS1 / Timer2B</description>
+              <description>DMA Channel 15</description>
               <bitRange>[15:15]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH16</name>
-              <description>ADC0_SS2</description>
+              <description>DMA Channel 16</description>
               <bitRange>[16:16]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH17</name>
-              <description>ADC0_SS3</description>
+              <description>DMA Channel 17</description>
               <bitRange>[17:17]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH18</name>
-              <description>Timer0A / Timer1A</description>
+              <description>DMA Channel 18</description>
               <bitRange>[18:18]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH19</name>
-              <description>Timer0B / Timer1B</description>
+              <description>DMA Channel 19</description>
               <bitRange>[19:19]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH20</name>
-              <description>Timer1A / EPI0_NBRFIFO</description>
+              <description>DMA Channel 20</description>
               <bitRange>[20:20]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH21</name>
-              <description>Timer1B / EPI0_WFIFO</description>
+              <description>DMA Channel 21</description>
               <bitRange>[21:21]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH22</name>
-              <description>UART1_RX / CAN2_RX</description>
+              <description>DMA Channel 22</description>
               <bitRange>[22:22]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH23</name>
-              <description>UART1_TX / CAN2_TX</description>
+              <description>DMA Channel 23</description>
               <bitRange>[23:23]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH24</name>
-              <description>SSI1_RX / ADC1_SS0</description>
+              <description>DMA Channel 24</description>
               <bitRange>[24:24]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH25</name>
-              <description>SSI1_TX / ADC1_SS1</description>
+              <description>DMA Channel 25</description>
               <bitRange>[25:25]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH26</name>
-              <description>CAN1_RX / ADC1_SS2</description>
+              <description>DMA Channel 26</description>
               <bitRange>[26:26]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH27</name>
-              <description>CAN1_TX / ADC1_SS3</description>
+              <description>DMA Channel 27</description>
               <bitRange>[27:27]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH28</name>
-              <description>I2S0_RX / CAN1_RX</description>
+              <description>DMA Channel 28</description>
               <bitRange>[28:28]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH29</name>
-              <description>I2S0_TX / CAN1_TX</description>
+              <description>DMA Channel 29</description>
               <bitRange>[29:29]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DC7_DMACH30</name>
-              <description>SW</description>
+              <description>DMA Channel 30</description>
               <bitRange>[30:30]</bitRange>
             </field>
           </fields>
         </register>
         <register>
           <name>DC8</name>
-          <description>Device Capabilities 8 ADC Channels</description>
+          <description>Device Capabilities 8</description>
           <addressOffset>0x0000002C</addressOffset>
           <fields>
             <field>
@@ -21770,8 +21665,13 @@
           <addressOffset>0x00000050</addressOffset>
           <fields>
             <field>
+              <name>SYSCTL_RIS_BOR1RIS</name>
+              <description>VDD under BOR1 Raw Interrupt Status</description>
+              <bitRange>[1:1]</bitRange>
+            </field>
+            <field>
               <name>SYSCTL_RIS_MOFRIS</name>
-              <description>Main Oscillator Fault Raw Interrupt Status</description>
+              <description>Main Oscillator Failure Raw Interrupt Status</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
@@ -21794,6 +21694,11 @@
               <description>VDDA Power OK Event Raw Interrupt Status</description>
               <bitRange>[10:10]</bitRange>
             </field>
+            <field>
+              <name>SYSCTL_RIS_BOR0RIS</name>
+              <description>VDD under BOR0 Raw Interrupt Status</description>
+              <bitRange>[11:11]</bitRange>
+            </field>
           </fields>
         </register>
         <register>
@@ -21802,8 +21707,13 @@
           <addressOffset>0x00000054</addressOffset>
           <fields>
             <field>
+              <name>SYSCTL_IMC_BOR1IM</name>
+              <description>VDD under BOR1 Interrupt Mask</description>
+              <bitRange>[1:1]</bitRange>
+            </field>
+            <field>
               <name>SYSCTL_IMC_MOFIM</name>
-              <description>Main Oscillator Fault Interrupt Mask</description>
+              <description>Main Oscillator Failure Interrupt Mask</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
@@ -21826,6 +21736,11 @@
               <description>VDDA Power OK Interrupt Mask</description>
               <bitRange>[10:10]</bitRange>
             </field>
+            <field>
+              <name>SYSCTL_IMC_BOR0IM</name>
+              <description>VDD under BOR0 Interrupt Mask</description>
+              <bitRange>[11:11]</bitRange>
+            </field>
           </fields>
         </register>
         <register>
@@ -21834,8 +21749,13 @@
           <addressOffset>0x00000058</addressOffset>
           <fields>
             <field>
+              <name>SYSCTL_MISC_BOR1MIS</name>
+              <description>VDD under BOR1 Masked Interrupt Status</description>
+              <bitRange>[1:1]</bitRange>
+            </field>
+            <field>
               <name>SYSCTL_MISC_MOFMIS</name>
-              <description>Main Oscillator Fault Masked Interrupt Status</description>
+              <description>Main Oscillator Failure Masked Interrupt Status</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
@@ -21857,6 +21777,11 @@
               <name>SYSCTL_MISC_VDDAMIS</name>
               <description>VDDA Power OK Masked Interrupt Status</description>
               <bitRange>[10:10]</bitRange>
+            </field>
+            <field>
+              <name>SYSCTL_MISC_BOR0MIS</name>
+              <description>VDD under BOR0 Masked Interrupt Status</description>
+              <bitRange>[11:11]</bitRange>
             </field>
           </fields>
         </register>
@@ -21934,7 +21859,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SYSCTL_RCC_OSCSRC_30</name>
-                  <description>30 kHz</description>
+                  <description>LFIOSC</description>
                   <value>0x3</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -22031,22 +21956,22 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SYSCTL_RCC_XTAL_18MHZ</name>
-                  <description>18.0 MHz</description>
+                  <description>18.0 MHz (USB)</description>
                   <value>0x17</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SYSCTL_RCC_XTAL_20MHZ</name>
-                  <description>20.0 MHz</description>
+                  <description>20.0 MHz (USB)</description>
                   <value>0x18</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SYSCTL_RCC_XTAL_24MHZ</name>
-                  <description>24.0 MHz</description>
+                  <description>24.0 MHz (USB)</description>
                   <value>0x19</value>
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SYSCTL_RCC_XTAL_25MHZ</name>
-                  <description>25.0 MHz</description>
+                  <description>25.0 MHz (USB)</description>
                   <value>0x1a</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -22199,7 +22124,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SYSCTL_RCC2_OSCSRC2_30</name>
-                  <description>30 kHz</description>
+                  <description>LFIOSC</description>
                   <value>0x3</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -22916,6 +22841,11 @@
           <addressOffset>0x00000144</addressOffset>
           <fields>
             <field>
+              <name>SYSCTL_DSLPCLKCFG_PIOSCPD</name>
+              <description>PIOSC Power Down Request</description>
+              <bitRange>[1:1]</bitRange>
+            </field>
+            <field>
               <name>SYSCTL_DSLPCLKCFG_O</name>
               <description>Clock Source</description>
               <bitRange>[6:4]</bitRange>
@@ -22932,7 +22862,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>SYSCTL_DSLPCLKCFG_O_30</name>
-                  <description>30 kHz</description>
+                  <description>LFIOSC</description>
                   <value>0x3</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -23074,8 +23004,100 @@
           </fields>
         </register>
         <register>
+          <name>SLPPWRCFG</name>
+          <description>Sleep Power Configuration</description>
+          <addressOffset>0x00000188</addressOffset>
+          <fields>
+            <field>
+              <name>SYSCTL_SLPPWRCFG_SRAMPM</name>
+              <description>SRAM Power Modes</description>
+              <bitRange>[1:0]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>SYSCTL_SLPPWRCFG_SRAMPM_NRM</name>
+                  <description>Active Mode</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_SLPPWRCFG_SRAMPM_SBY</name>
+                  <description>Standby Mode</description>
+                  <value>0x1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_SLPPWRCFG_SRAMPM_LP</name>
+                  <description>Low Power Mode</description>
+                  <value>0x3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>SYSCTL_SLPPWRCFG_FLASHPM</name>
+              <description>Flash Power Modes</description>
+              <bitRange>[5:4]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>SYSCTL_SLPPWRCFG_FLASHPM_NRM</name>
+                  <description>Active Mode</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_SLPPWRCFG_FLASHPM_SLP</name>
+                  <description>Low Power Mode</description>
+                  <value>0x2</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>DSLPPWRCFG</name>
+          <description>Deep-Sleep Power Configuration</description>
+          <addressOffset>0x0000018C</addressOffset>
+          <fields>
+            <field>
+              <name>SYSCTL_DSLPPWRCFG_SRAMPM</name>
+              <description>SRAM Power Modes</description>
+              <bitRange>[1:0]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>SYSCTL_DSLPPWRCFG_SRAMPM_NRM</name>
+                  <description>Active Mode</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_DSLPPWRCFG_SRAMPM_SBY</name>
+                  <description>Standby Mode</description>
+                  <value>0x1</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_DSLPPWRCFG_SRAMPM_LP</name>
+                  <description>Low Power Mode</description>
+                  <value>0x3</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>SYSCTL_DSLPPWRCFG_FLASHPM</name>
+              <description>Flash Power Modes</description>
+              <bitRange>[5:4]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>SYSCTL_DSLPPWRCFG_FLASHPM_NRM</name>
+                  <description>Active Mode</description>
+                  <value>0x0</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_DSLPPWRCFG_FLASHPM_SLP</name>
+                  <description>Low Power Mode</description>
+                  <value>0x2</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+          </fields>
+        </register>
+        <register>
           <name>DC9</name>
-          <description>Device Capabilities 9 ADC Digital Comparators</description>
+          <description>Device Capabilities 9</description>
           <addressOffset>0x00000190</addressOffset>
           <fields>
             <field>
@@ -23167,8 +23189,116 @@
           <fields>
             <field>
               <name>SYSCTL_NVMSTAT_FWB</name>
-              <description>32 Word Flash Write Buffer Active</description>
+              <description>32 Word Flash Write Buffer Available</description>
               <bitRange>[0:0]</bitRange>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>LDOSPCTL</name>
+          <description>LDO Sleep Power Control</description>
+          <addressOffset>0x000001B4</addressOffset>
+          <fields>
+            <field>
+              <name>SYSCTL_LDOSPCTL_VLDO</name>
+              <description>LDO Output Voltage</description>
+              <bitRange>[7:0]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>SYSCTL_LDOSPCTL_VLDO_0_90V</name>
+                  <description>0.90 V</description>
+                  <value>0x12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_LDOSPCTL_VLDO_0_95V</name>
+                  <description>0.95 V</description>
+                  <value>0x13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_LDOSPCTL_VLDO_1_00V</name>
+                  <description>1.00 V</description>
+                  <value>0x14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_LDOSPCTL_VLDO_1_05V</name>
+                  <description>1.05 V</description>
+                  <value>0x15</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_LDOSPCTL_VLDO_1_10V</name>
+                  <description>1.10 V</description>
+                  <value>0x16</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_LDOSPCTL_VLDO_1_15V</name>
+                  <description>1.15 V</description>
+                  <value>0x17</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_LDOSPCTL_VLDO_1_20V</name>
+                  <description>1.20 V</description>
+                  <value>0x18</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>SYSCTL_LDOSPCTL_VADJEN</name>
+              <description>Voltage Adjust Enable</description>
+              <bitRange>[31:31]</bitRange>
+            </field>
+          </fields>
+        </register>
+        <register>
+          <name>LDODPCTL</name>
+          <description>LDO Deep-Sleep Power Control</description>
+          <addressOffset>0x000001BC</addressOffset>
+          <fields>
+            <field>
+              <name>SYSCTL_LDODPCTL_VLDO</name>
+              <description>LDO Output Voltage</description>
+              <bitRange>[7:0]</bitRange>
+              <enumeratedValues>
+                <enumeratedValue>
+                  <name>SYSCTL_LDODPCTL_VLDO_0_90V</name>
+                  <description>0.90 V</description>
+                  <value>0x12</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_LDODPCTL_VLDO_0_95V</name>
+                  <description>0.95 V</description>
+                  <value>0x13</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_LDODPCTL_VLDO_1_00V</name>
+                  <description>1.00 V</description>
+                  <value>0x14</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_LDODPCTL_VLDO_1_05V</name>
+                  <description>1.05 V</description>
+                  <value>0x15</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_LDODPCTL_VLDO_1_10V</name>
+                  <description>1.10 V</description>
+                  <value>0x16</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_LDODPCTL_VLDO_1_15V</name>
+                  <description>1.15 V</description>
+                  <value>0x17</value>
+                </enumeratedValue>
+                <enumeratedValue>
+                  <name>SYSCTL_LDODPCTL_VLDO_1_20V</name>
+                  <description>1.20 V</description>
+                  <value>0x18</value>
+                </enumeratedValue>
+              </enumeratedValues>
+            </field>
+            <field>
+              <name>SYSCTL_LDODPCTL_VADJEN</name>
+              <description>Voltage Adjust Enable</description>
+              <bitRange>[31:31]</bitRange>
             </field>
           </fields>
         </register>
@@ -23191,37 +23321,37 @@
         </register>
         <register>
           <name>PPTIMER</name>
-          <description>Timer Peripheral Present</description>
+          <description>16/32-Bit General-Purpose Timer Peripheral Present</description>
           <addressOffset>0x00000304</addressOffset>
           <fields>
             <field>
               <name>SYSCTL_PPTIMER_P0</name>
-              <description>Timer 0 Present</description>
+              <description>16/32-Bit General-Purpose Timer 0 Present</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PPTIMER_P1</name>
-              <description>Timer 1 Present</description>
+              <description>16/32-Bit General-Purpose Timer 1 Present</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PPTIMER_P2</name>
-              <description>Timer 2 Present</description>
+              <description>16/32-Bit General-Purpose Timer 2 Present</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PPTIMER_P3</name>
-              <description>Timer 3 Present</description>
+              <description>16/32-Bit General-Purpose Timer 3 Present</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PPTIMER_P4</name>
-              <description>Timer 4 Present</description>
+              <description>16/32-Bit General-Purpose Timer 4 Present</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PPTIMER_P5</name>
-              <description>Timer 5 Present</description>
+              <description>16/32-Bit General-Purpose Timer 5 Present</description>
               <bitRange>[5:5]</bitRange>
             </field>
           </fields>
@@ -23549,37 +23679,37 @@
         </register>
         <register>
           <name>PPWTIMER</name>
-          <description>Wide Timer Peripheral Present</description>
+          <description>32/64-Bit Wide General-Purpose Timer Peripheral Present</description>
           <addressOffset>0x0000035C</addressOffset>
           <fields>
             <field>
               <name>SYSCTL_PPWTIMER_P0</name>
-              <description>Wide Timer 0 Present</description>
+              <description>32/64-Bit Wide General-Purpose Timer 0 Present</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PPWTIMER_P1</name>
-              <description>Wide Timer 1 Present</description>
+              <description>32/64-Bit Wide General-Purpose Timer 1 Present</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PPWTIMER_P2</name>
-              <description>Wide Timer 2 Present</description>
+              <description>32/64-Bit Wide General-Purpose Timer 2 Present</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PPWTIMER_P3</name>
-              <description>Wide Timer 3 Present</description>
+              <description>32/64-Bit Wide General-Purpose Timer 3 Present</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PPWTIMER_P4</name>
-              <description>Wide Timer 4 Present</description>
+              <description>32/64-Bit Wide General-Purpose Timer 4 Present</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PPWTIMER_P5</name>
-              <description>Wide Timer 5 Present</description>
+              <description>32/64-Bit Wide General-Purpose Timer 5 Present</description>
               <bitRange>[5:5]</bitRange>
             </field>
           </fields>
@@ -23603,37 +23733,37 @@
         </register>
         <register>
           <name>SRTIMER</name>
-          <description>Timer Software Reset</description>
+          <description>16/32-Bit General-Purpose Timer Software Reset</description>
           <addressOffset>0x00000504</addressOffset>
           <fields>
             <field>
               <name>SYSCTL_SRTIMER_R0</name>
-              <description>Timer 0 Software Reset</description>
+              <description>16/32-Bit General-Purpose Timer 0 Software Reset</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SRTIMER_R1</name>
-              <description>Timer 1 Software Reset</description>
+              <description>16/32-Bit General-Purpose Timer 1 Software Reset</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SRTIMER_R2</name>
-              <description>Timer 2 Software Reset</description>
+              <description>16/32-Bit General-Purpose Timer 2 Software Reset</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SRTIMER_R3</name>
-              <description>Timer 3 Software Reset</description>
+              <description>16/32-Bit General-Purpose Timer 3 Software Reset</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SRTIMER_R4</name>
-              <description>Timer 4 Software Reset</description>
+              <description>16/32-Bit General-Purpose Timer 4 Software Reset</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SRTIMER_R5</name>
-              <description>Timer 5 Software Reset</description>
+              <description>16/32-Bit General-Purpose Timer 5 Software Reset</description>
               <bitRange>[5:5]</bitRange>
             </field>
           </fields>
@@ -23936,37 +24066,37 @@
         </register>
         <register>
           <name>SRWTIMER</name>
-          <description>Wide Timer Software Reset</description>
+          <description>32/64-Bit Wide General-Purpose Timer Software Reset</description>
           <addressOffset>0x0000055C</addressOffset>
           <fields>
             <field>
               <name>SYSCTL_SRWTIMER_R0</name>
-              <description>Wide Timer 0 Software Reset</description>
+              <description>32/64-Bit Wide General-Purpose Timer 0 Software Reset</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SRWTIMER_R1</name>
-              <description>Wide Timer 1 Software Reset</description>
+              <description>32/64-Bit Wide General-Purpose Timer 1 Software Reset</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SRWTIMER_R2</name>
-              <description>Wide Timer 2 Software Reset</description>
+              <description>32/64-Bit Wide General-Purpose Timer 2 Software Reset</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SRWTIMER_R3</name>
-              <description>Wide Timer 3 Software Reset</description>
+              <description>32/64-Bit Wide General-Purpose Timer 3 Software Reset</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SRWTIMER_R4</name>
-              <description>Wide Timer 4 Software Reset</description>
+              <description>32/64-Bit Wide General-Purpose Timer 4 Software Reset</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SRWTIMER_R5</name>
-              <description>Wide Timer 5 Software Reset</description>
+              <description>32/64-Bit Wide General-Purpose Timer 5 Software Reset</description>
               <bitRange>[5:5]</bitRange>
             </field>
           </fields>
@@ -23990,37 +24120,37 @@
         </register>
         <register>
           <name>RCGCTIMER</name>
-          <description>Timer Run Mode Clock Gating Control</description>
+          <description>16/32-Bit General-Purpose Timer Run Mode Clock Gating Control</description>
           <addressOffset>0x00000604</addressOffset>
           <fields>
             <field>
               <name>SYSCTL_RCGCTIMER_R0</name>
-              <description>Timer 0 Run Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 0 Run Mode Clock Gating Control</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>SYSCTL_RCGCTIMER_R1</name>
-              <description>Timer 1 Run Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 1 Run Mode Clock Gating Control</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>SYSCTL_RCGCTIMER_R2</name>
-              <description>Timer 2 Run Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 2 Run Mode Clock Gating Control</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>SYSCTL_RCGCTIMER_R3</name>
-              <description>Timer 3 Run Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 3 Run Mode Clock Gating Control</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SYSCTL_RCGCTIMER_R4</name>
-              <description>Timer 4 Run Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 4 Run Mode Clock Gating Control</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>SYSCTL_RCGCTIMER_R5</name>
-              <description>Timer 5 Run Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 5 Run Mode Clock Gating Control</description>
               <bitRange>[5:5]</bitRange>
             </field>
           </fields>
@@ -24323,37 +24453,37 @@
         </register>
         <register>
           <name>RCGCWTIMER</name>
-          <description>Wide Timer Run Mode Clock Gating Control</description>
+          <description>32/64-Bit Wide General-Purpose Timer Run Mode Clock Gating Control</description>
           <addressOffset>0x0000065C</addressOffset>
           <fields>
             <field>
               <name>SYSCTL_RCGCWTIMER_R0</name>
-              <description>Wide Timer 0 Run Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 0 Run Mode Clock Gating Control</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>SYSCTL_RCGCWTIMER_R1</name>
-              <description>Wide Timer 1 Run Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 1 Run Mode Clock Gating Control</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>SYSCTL_RCGCWTIMER_R2</name>
-              <description>Wide Timer 2 Run Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 2 Run Mode Clock Gating Control</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>SYSCTL_RCGCWTIMER_R3</name>
-              <description>Wide Timer 3 Run Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 3 Run Mode Clock Gating Control</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SYSCTL_RCGCWTIMER_R4</name>
-              <description>Wide Timer 4 Run Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 4 Run Mode Clock Gating Control</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>SYSCTL_RCGCWTIMER_R5</name>
-              <description>Wide Timer 5 Run Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 5 Run Mode Clock Gating Control</description>
               <bitRange>[5:5]</bitRange>
             </field>
           </fields>
@@ -24377,37 +24507,37 @@
         </register>
         <register>
           <name>SCGCTIMER</name>
-          <description>Timer Sleep Mode Clock Gating Control</description>
+          <description>16/32-Bit General-Purpose Timer Sleep Mode Clock Gating Control</description>
           <addressOffset>0x00000704</addressOffset>
           <fields>
             <field>
               <name>SYSCTL_SCGCTIMER_S0</name>
-              <description>Timer 0 Sleep Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 0 Sleep Mode Clock Gating Control</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SCGCTIMER_S1</name>
-              <description>Timer 1 Sleep Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 1 Sleep Mode Clock Gating Control</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SCGCTIMER_S2</name>
-              <description>Timer 2 Sleep Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 2 Sleep Mode Clock Gating Control</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SCGCTIMER_S3</name>
-              <description>Timer 3 Sleep Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 3 Sleep Mode Clock Gating Control</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SCGCTIMER_S4</name>
-              <description>Timer 4 Sleep Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 4 Sleep Mode Clock Gating Control</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SCGCTIMER_S5</name>
-              <description>Timer 5 Sleep Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 5 Sleep Mode Clock Gating Control</description>
               <bitRange>[5:5]</bitRange>
             </field>
           </fields>
@@ -24710,37 +24840,37 @@
         </register>
         <register>
           <name>SCGCWTIMER</name>
-          <description>Wide Timer Sleep Mode Clock Gating Control</description>
+          <description>32/64-Bit Wide General-Purpose Timer Sleep Mode Clock Gating Control</description>
           <addressOffset>0x0000075C</addressOffset>
           <fields>
             <field>
               <name>SYSCTL_SCGCWTIMER_S0</name>
-              <description>Wide Timer 0 Sleep Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 0 Sleep Mode Clock Gating Control</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SCGCWTIMER_S1</name>
-              <description>Wide Timer 1 Sleep Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 1 Sleep Mode Clock Gating Control</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SCGCWTIMER_S2</name>
-              <description>Wide Timer 2 Sleep Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 2 Sleep Mode Clock Gating Control</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SCGCWTIMER_S3</name>
-              <description>Wide Timer 3 Sleep Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 3 Sleep Mode Clock Gating Control</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SCGCWTIMER_S4</name>
-              <description>Wide Timer 4 Sleep Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 4 Sleep Mode Clock Gating Control</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>SYSCTL_SCGCWTIMER_S5</name>
-              <description>Wide Timer 5 Sleep Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 5 Sleep Mode Clock Gating Control</description>
               <bitRange>[5:5]</bitRange>
             </field>
           </fields>
@@ -24764,37 +24894,37 @@
         </register>
         <register>
           <name>DCGCTIMER</name>
-          <description>Timer Deep-Sleep Mode Clock Gating Control</description>
+          <description>16/32-Bit General-Purpose Timer Deep-Sleep Mode Clock Gating Control</description>
           <addressOffset>0x00000804</addressOffset>
           <fields>
             <field>
               <name>SYSCTL_DCGCTIMER_D0</name>
-              <description>Timer 0 Deep-Sleep Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 0 Deep-Sleep Mode Clock Gating Control</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DCGCTIMER_D1</name>
-              <description>Timer 1 Deep-Sleep Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 1 Deep-Sleep Mode Clock Gating Control</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DCGCTIMER_D2</name>
-              <description>Timer 2 Deep-Sleep Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 2 Deep-Sleep Mode Clock Gating Control</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DCGCTIMER_D3</name>
-              <description>Timer 3 Deep-Sleep Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 3 Deep-Sleep Mode Clock Gating Control</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DCGCTIMER_D4</name>
-              <description>Timer 4 Deep-Sleep Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 4 Deep-Sleep Mode Clock Gating Control</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DCGCTIMER_D5</name>
-              <description>Timer 5 Deep-Sleep Mode Clock Gating Control</description>
+              <description>16/32-Bit General-Purpose Timer 5 Deep-Sleep Mode Clock Gating Control</description>
               <bitRange>[5:5]</bitRange>
             </field>
           </fields>
@@ -25097,37 +25227,37 @@
         </register>
         <register>
           <name>DCGCWTIMER</name>
-          <description>Wide Timer Deep-Sleep Mode Clock Gating Control</description>
+          <description>32/64-Bit Wide General-Purpose Timer Deep-Sleep Mode Clock Gating Control</description>
           <addressOffset>0x0000085C</addressOffset>
           <fields>
             <field>
               <name>SYSCTL_DCGCWTIMER_D0</name>
-              <description>Wide Timer 0 Deep-Sleep Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 0 Deep-Sleep Mode Clock Gating Control</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DCGCWTIMER_D1</name>
-              <description>Wide Timer 1 Deep-Sleep Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 1 Deep-Sleep Mode Clock Gating Control</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DCGCWTIMER_D2</name>
-              <description>Wide Timer 2 Deep-Sleep Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 2 Deep-Sleep Mode Clock Gating Control</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DCGCWTIMER_D3</name>
-              <description>Wide Timer 3 Deep-Sleep Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 3 Deep-Sleep Mode Clock Gating Control</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DCGCWTIMER_D4</name>
-              <description>Wide Timer 4 Deep-Sleep Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 4 Deep-Sleep Mode Clock Gating Control</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>SYSCTL_DCGCWTIMER_D5</name>
-              <description>Wide Timer 5 Deep-Sleep Mode Clock Gating Control</description>
+              <description>32/64-Bit Wide General-Purpose Timer 5 Deep-Sleep Mode Clock Gating Control</description>
               <bitRange>[5:5]</bitRange>
             </field>
           </fields>
@@ -25151,37 +25281,37 @@
         </register>
         <register>
           <name>PRTIMER</name>
-          <description>Timer Peripheral Ready</description>
+          <description>16/32-Bit General-Purpose Timer Peripheral Ready</description>
           <addressOffset>0x00000A04</addressOffset>
           <fields>
             <field>
               <name>SYSCTL_PRTIMER_R0</name>
-              <description>Timer 0 Peripheral Ready</description>
+              <description>16/32-Bit General-Purpose Timer 0 Peripheral Ready</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PRTIMER_R1</name>
-              <description>Timer 1 Peripheral Ready</description>
+              <description>16/32-Bit General-Purpose Timer 1 Peripheral Ready</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PRTIMER_R2</name>
-              <description>Timer 2 Peripheral Ready</description>
+              <description>16/32-Bit General-Purpose Timer 2 Peripheral Ready</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PRTIMER_R3</name>
-              <description>Timer 3 Peripheral Ready</description>
+              <description>16/32-Bit General-Purpose Timer 3 Peripheral Ready</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PRTIMER_R4</name>
-              <description>Timer 4 Peripheral Ready</description>
+              <description>16/32-Bit General-Purpose Timer 4 Peripheral Ready</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PRTIMER_R5</name>
-              <description>Timer 5 Peripheral Ready</description>
+              <description>16/32-Bit General-Purpose Timer 5 Peripheral Ready</description>
               <bitRange>[5:5]</bitRange>
             </field>
           </fields>
@@ -25484,37 +25614,37 @@
         </register>
         <register>
           <name>PRWTIMER</name>
-          <description>Wide Timer Peripheral Ready</description>
+          <description>32/64-Bit Wide General-Purpose Timer Peripheral Ready</description>
           <addressOffset>0x00000A5C</addressOffset>
           <fields>
             <field>
               <name>SYSCTL_PRWTIMER_R0</name>
-              <description>Wide Timer 0 Peripheral Ready</description>
+              <description>32/64-Bit Wide General-Purpose Timer 0 Peripheral Ready</description>
               <bitRange>[0:0]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PRWTIMER_R1</name>
-              <description>Wide Timer 1 Peripheral Ready</description>
+              <description>32/64-Bit Wide General-Purpose Timer 1 Peripheral Ready</description>
               <bitRange>[1:1]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PRWTIMER_R2</name>
-              <description>Wide Timer 2 Peripheral Ready</description>
+              <description>32/64-Bit Wide General-Purpose Timer 2 Peripheral Ready</description>
               <bitRange>[2:2]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PRWTIMER_R3</name>
-              <description>Wide Timer 3 Peripheral Ready</description>
+              <description>32/64-Bit Wide General-Purpose Timer 3 Peripheral Ready</description>
               <bitRange>[3:3]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PRWTIMER_R4</name>
-              <description>Wide Timer 4 Peripheral Ready</description>
+              <description>32/64-Bit Wide General-Purpose Timer 4 Peripheral Ready</description>
               <bitRange>[4:4]</bitRange>
             </field>
             <field>
               <name>SYSCTL_PRWTIMER_R5</name>
-              <description>Wide Timer 5 Peripheral Ready</description>
+              <description>32/64-Bit Wide General-Purpose Timer 5 Peripheral Ready</description>
               <bitRange>[5:5]</bitRange>
             </field>
           </fields>

@@ -2,8 +2,8 @@
 <device schemaVersion="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD_Schema_1_1.xsd">
   <vendor>Freescale Semiconductor, Inc.</vendor>
   <vendorID>Freescale</vendorID>
-  <series>Kinetis_W</series>
   <name>MKW21Z4</name>
+  <series>Kinetis_W</series>
   <version>1.6</version>
   <description>MKW21Z4 Freescale Microcontroller</description>
   <licenseText>Redistribution and use in source and binary forms, with or without modification,\nare permitted provided that the following conditions are met:\n o Redistributions of source code must retain the above copyright notice, this list\n   of conditions and the following disclaimer.\n o Redistributions in binary form must reproduce the above copyright notice, this\n   list of conditions and the following disclaimer in the documentation and/or\n   other materials provided with the distribution.\n o Neither the name of Freescale Semiconductor, Inc. nor the names of its\n   contributors may be used to endorse or promote products derived from this\n   software without specific prior written permission.\n THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND\n ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED\n WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE\n DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR\n ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES\n (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;\n LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON\n ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT\n (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS\n SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</licenseText>
@@ -11,8 +11,8 @@
     <name>CM0PLUS</name>
     <revision>r0p0</revision>
     <endian>little</endian>
-    <fpuPresent>false</fpuPresent>
     <mpuPresent>false</mpuPresent>
+    <fpuPresent>false</fpuPresent>
     <vtorPresent>true</vtorPresent>
     <nvicPrioBits>2</nvicPrioBits>
     <vendorSystickConfig>false</vendorSystickConfig>
@@ -14468,19 +14468,9 @@
               <access>read-only</access>
               <enumeratedValues>
                 <enumeratedValue>
-                  <name>0010</name>
-                  <description>32-pin</description>
-                  <value>#0010</value>
-                </enumeratedValue>
-                <enumeratedValue>
                   <name>0100</name>
                   <description>48-pin</description>
                   <value>#0100</value>
-                </enumeratedValue>
-                <enumeratedValue>
-                  <name>1011</name>
-                  <description>CSP</description>
-                  <value>#1011</value>
                 </enumeratedValue>
               </enumeratedValues>
             </field>
@@ -14569,7 +14559,7 @@
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0010</name>
-                  <description>KW2x Family (802.15.4/ZigBee)</description>
+                  <description>KW2x Family (802.15.4)</description>
                   <value>#0010</value>
                 </enumeratedValue>
                 <enumeratedValue>
@@ -14579,7 +14569,7 @@
                 </enumeratedValue>
                 <enumeratedValue>
                   <name>0100</name>
-                  <description>KW4x Family (802.15.4/ZigBee, BTLE, GFSK , ANT)</description>
+                  <description>KW4x Family (802.15.4, BTLE, GFSK , ANT)</description>
                   <value>#0100</value>
                 </enumeratedValue>
               </enumeratedValues>
@@ -14900,7 +14890,7 @@
             </field>
             <field>
               <name>ZigBee</name>
-              <description>ZigBee Clock Gate Control</description>
+              <description>802.15.4 Clock Gate Control</description>
               <bitOffset>29</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -15714,7 +15704,7 @@
           <addressOffset>0</addressOffset>
           <size>32</size>
           <access>read-write</access>
-          <resetValue>0x707</resetValue>
+          <resetValue>0x703</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
             <field>
@@ -16170,7 +16160,7 @@
           <addressOffset>0x8</addressOffset>
           <size>32</size>
           <access>read-write</access>
-          <resetValue>0x707</resetValue>
+          <resetValue>0x5</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
             <field>
@@ -23132,7 +23122,7 @@
           <addressOffset>0</addressOffset>
           <size>32</size>
           <access>read-write</access>
-          <resetValue>0x5</resetValue>
+          <resetValue>0x1</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
             <field>
@@ -30558,7 +30548,7 @@
               <description>Pull Select</description>
               <bitOffset>0</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
@@ -30577,7 +30567,7 @@
               <description>Pull Enable</description>
               <bitOffset>1</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
@@ -30596,7 +30586,7 @@
               <description>Slew Rate Enable</description>
               <bitOffset>2</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
@@ -30634,7 +30624,7 @@
               <description>Drive Strength Enable</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
-              <access>read-write</access>
+              <access>read-only</access>
               <enumeratedValues>
                 <enumeratedValue>
                   <name>0</name>
@@ -34882,7 +34872,7 @@
           <addressOffset>0x4C</addressOffset>
           <size>32</size>
           <access>read-write</access>
-          <resetValue>0x5</resetValue>
+          <resetValue>0x1</resetValue>
           <resetMask>0xFFFFFFFF</resetMask>
           <fields>
             <field>
@@ -40611,7 +40601,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>RSIM_REGS</name>
+      <name>RSIM</name>
       <description>RSIM</description>
       <baseAddress>0x40059000</baseAddress>
       <addressBlock>
@@ -42068,7 +42058,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>RX_DIG</name>
+      <name>XCVR_RX_DIG</name>
       <description>XCVR_RX_DIG</description>
       <baseAddress>0x4005C000</baseAddress>
       <addressBlock>
@@ -47784,7 +47774,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>TX_DIG_REGS</name>
+      <name>XCVR_TX_DIG</name>
       <description>XCVR_TX_DIG</description>
       <baseAddress>0x4005C200</baseAddress>
       <addressBlock>
@@ -48525,7 +48515,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>PLL_DIG_REGS</name>
+      <name>XCVR_PLL_DIG</name>
       <description>XCVR_PLL_DIG</description>
       <baseAddress>0x4005C224</baseAddress>
       <addressBlock>
@@ -49896,7 +49886,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>XCVR_CTRL_REGS</name>
+      <name>XCVR_MISC</name>
       <description>XCVR_MISC</description>
       <baseAddress>0x4005C280</baseAddress>
       <addressBlock>
@@ -51289,7 +51279,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>XCVR_TSM_REGS</name>
+      <name>XCVR_TSM</name>
       <description>XCVR_TSM</description>
       <baseAddress>0x4005C2C0</baseAddress>
       <addressBlock>
@@ -55376,7 +55366,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>XCVR_PHY_REGS</name>
+      <name>XCVR_PHY</name>
       <description>XCVR_PHY</description>
       <baseAddress>0x4005C400</baseAddress>
       <addressBlock>
@@ -55930,7 +55920,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>XCVR_ZBDEMOD_REGS</name>
+      <name>XCVR_ZBDEM</name>
       <description>XCVR_ZBDEMOD</description>
       <baseAddress>0x4005C480</baseAddress>
       <addressBlock>
@@ -56236,7 +56226,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>XCVR_ANALOG_REGS</name>
+      <name>XCVR_ANA</name>
       <description>XCVR_ANALOG</description>
       <baseAddress>0x4005C500</baseAddress>
       <addressBlock>
@@ -85481,7 +85471,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>ZLL_REGS</name>
+      <name>ZLL</name>
       <description>ZLL</description>
       <baseAddress>0x4005D000</baseAddress>
       <addressBlock>
@@ -90370,7 +90360,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>ANT_REGS</name>
+      <name>ANT</name>
       <description>ANT</description>
       <baseAddress>0x4005E000</baseAddress>
       <addressBlock>
@@ -92738,7 +92728,7 @@
       </registers>
     </peripheral>
     <peripheral>
-      <name>GENFSK_REGS</name>
+      <name>GENFSK</name>
       <description>GENERIC_FSK</description>
       <baseAddress>0x4005F000</baseAddress>
       <addressBlock>
